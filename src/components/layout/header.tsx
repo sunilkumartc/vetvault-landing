@@ -25,7 +25,6 @@ import {
   HelpCircle,
   Download,
   Sparkles,
-  Heart,
 } from "lucide-react";
 
 const solutionsItems = [
