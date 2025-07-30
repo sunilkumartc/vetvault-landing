@@ -24,6 +24,8 @@ import {
   BookOpen,
   HelpCircle,
   Download,
+  Sparkles,
+  Heart,
 } from "lucide-react";
 
 const solutionsItems = [
@@ -86,18 +88,24 @@ export default function Header() {
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50 border-b">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          {/* Logo */}
-          <Link href="/" className="flex items-center mr-6">
-            <PawPrint className="w-8 h-8 text-cyan-500 mr-3" />
-            <h1 className="text-2xl font-bold text-slate-900">VetVault</h1>
+        <div className="flex justify-between items-center py-3">
+          {/* Enhanced Logo */}
+          <Link href="/" className="flex items-center mr-4 group">
+            <div className="relative">
+              <PawPrint className="w-7 h-7 text-cyan-500 mr-2 group-hover:scale-110 transition-transform duration-200" />
+              <Sparkles className="w-2.5 h-2.5 text-indigo-500 absolute -top-1 -right-1 group-hover:animate-pulse" />
+            </div>
+            <div>
+              <h1 className="text-xl font-bold text-slate-900">VetVault</h1>
+              <p className="text-xs text-slate-500 -mt-1">Digital Sanctuary</p>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
           <NavigationMenu className="hidden lg:flex">
-            <NavigationMenuList className="space-x-2">
+            <NavigationMenuList className="space-x-1">
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-slate-600 hover:text-slate-900">
+                <NavigationMenuTrigger className="text-slate-600 hover:text-slate-900 text-sm px-3 py-2">
                   Solutions
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -127,7 +135,7 @@ export default function Header() {
               <NavigationMenuItem>
                 <Link
                   href="/features"
-                  className="text-slate-600 hover:text-slate-900 px-4 py-2 rounded-md transition-colors"
+                  className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md transition-colors text-sm"
                 >
                   Features
                 </Link>
@@ -136,16 +144,20 @@ export default function Header() {
               <NavigationMenuItem>
                 <Link
                   href="/ai-assistant"
-                  className="text-slate-600 hover:text-slate-900 px-4 py-2 rounded-md transition-colors flex items-center"
+                  className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md transition-colors flex items-center text-sm whitespace-nowrap"
                 >
-                  <Zap className="w-4 h-4 mr-1 text-indigo-500" /> AI Assistant
+                  <Zap className="w-4 h-4 mr-1 text-indigo-500" />
+                  <span className="relative">
+                    Pet Vault AI
+                    <Sparkles className="w-2 h-2 text-cyan-500 absolute -top-1 -right-2" />
+                  </span>
                 </Link>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
                 <Link
                   href="/integrations"
-                  className="text-slate-600 hover:text-slate-900 px-4 py-2 rounded-md transition-colors"
+                  className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md transition-colors text-sm"
                 >
                   Integrations
                 </Link>
@@ -154,7 +166,7 @@ export default function Header() {
               <NavigationMenuItem>
                 <Link
                   href="/pricing"
-                  className="text-slate-600 hover:text-slate-900 px-4 py-2 rounded-md transition-colors"
+                  className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md transition-colors text-sm"
                 >
                   Pricing
                 </Link>
@@ -163,14 +175,14 @@ export default function Header() {
               <NavigationMenuItem>
                 <Link
                   href="/academy"
-                  className="text-slate-600 hover:text-slate-900 px-4 py-2 rounded-md transition-colors"
+                  className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md transition-colors text-sm"
                 >
                   Academy
                 </Link>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-slate-600 hover:text-slate-900">
+                <NavigationMenuTrigger className="text-slate-600 hover:text-slate-900 text-sm px-3 py-2">
                   Resources
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -200,21 +212,24 @@ export default function Header() {
           </NavigationMenu>
 
           {/* Desktop Actions */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-3">
             <Button
               variant="ghost"
-              className="text-cyan-500 hover:text-cyan-600"
+              size="sm"
+              className="text-cyan-500 hover:text-cyan-600 text-sm"
             >
               Login
             </Button>
             <Button
               variant="ghost"
-              className="text-slate-600 hover:text-slate-700"
+              size="sm"
+              className="text-slate-600 hover:text-slate-700 text-sm"
             >
               Help Center
             </Button>
-            <Button className="bg-indigo-600 hover:bg-indigo-700 text-white">
-              Book a Demo
+            <Button size="sm" className="bg-indigo-600 hover:bg-indigo-700 text-white text-sm px-4">
+              <Sparkles className="w-3 h-3 mr-1" />
+              Start Magic
             </Button>
           </div>
 
@@ -222,7 +237,7 @@ export default function Header() {
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild className="lg:hidden">
               <Button variant="ghost" size="icon">
-                <Menu className="w-6 h-6" />
+                <Menu className="w-5 h-5" />
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
@@ -243,7 +258,11 @@ export default function Header() {
                   href="/ai-assistant"
                   className="text-slate-600 hover:text-slate-900 py-2 flex items-center"
                 >
-                  <Zap className="w-4 h-4 mr-2 text-indigo-500" /> AI Assistant
+                  <Zap className="w-4 h-4 mr-2 text-indigo-500" />
+                  <span className="relative">
+                    Pet Vault AI
+                    <Sparkles className="w-2 h-2 text-cyan-500 absolute -top-1 -right-2" />
+                  </span>
                 </Link>
                 <Link
                   href="/integrations"
@@ -273,18 +292,21 @@ export default function Header() {
                 <div className="flex flex-col space-y-2 pt-4 border-t">
                   <Button
                     variant="ghost"
+                    size="sm"
                     className="justify-start text-cyan-500"
                   >
                     Login
                   </Button>
                   <Button
                     variant="ghost"
+                    size="sm"
                     className="justify-start text-slate-600"
                   >
                     Help Center
                   </Button>
-                  <Button className="bg-indigo-600 hover:bg-indigo-700 text-white">
-                    Book a Demo
+                  <Button size="sm" className="bg-indigo-600 hover:bg-indigo-700 text-white">
+                    <Sparkles className="w-3 h-3 mr-1" />
+                    Start Magic
                   </Button>
                 </div>
               </div>

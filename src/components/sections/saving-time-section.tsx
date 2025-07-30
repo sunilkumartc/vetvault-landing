@@ -8,8 +8,8 @@ export default function SavingTimeSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative">
             <Image
-              src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=600&h=400&fit=crop"
-              alt="Veterinarian with cat"
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&crop=center"
+              alt="Veterinary practice analytics dashboard showing efficiency metrics, appointment scheduling, and time-saving insights"
               width={600}
               height={400}
               className="w-full h-auto rounded-2xl shadow-xl"

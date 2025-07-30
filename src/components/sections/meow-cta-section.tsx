@@ -21,8 +21,8 @@ export default function MeowCTASection() {
             </div>
             <div className="flex justify-center lg:justify-end">
               <Image
-                src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=300&h=300&fit=crop"
-                alt="Cute cat with winter hat"
+                src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=300&h=300&fit=crop&crop=center"
+                alt="Adorable cat with curious expression, representing the playful and caring nature of veterinary care"
                 width={256}
                 height={256}
                 className="w-64 h-64 object-cover rounded-full"

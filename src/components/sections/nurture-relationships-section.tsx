@@ -8,21 +8,19 @@ export default function NurtureRelationshipsSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
-              Nurture <span className="text-indigo-600">relationships</span> and{" "}
-              <span className="text-cyan-500">increase</span> compliance
+              Nurture relationships{" "}
+              <span className="text-indigo-600">with pet parents</span>
             </h2>
-            <div className="w-16 h-1 bg-cyan-500"></div>
             <p className="text-lg text-slate-600 leading-relaxed">
-              You no longer need multiple, disconnected tools. Our veterinary
-              management software makes the entire patient journey easier and
-              faster — for you and your patients. Retain your clients by giving
-              them a modern experience before, during, and after the visit.
+              Build stronger connections with pet owners through personalized
+              communication, health updates, and care reminders. Keep families
+              informed and engaged in their pet's wellness journey.
             </p>
           </div>
           <div className="relative">
             <Image
-              src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=600&h=400&fit=crop"
-              alt="Veterinarian with dog"
+              src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=600&h=400&fit=crop&crop=center"
+              alt="Veterinarian building trust with pet owner and their dog in a warm, welcoming clinic environment"
               width={600}
               height={400}
               className="w-full h-auto rounded-2xl shadow-xl"

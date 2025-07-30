@@ -55,7 +55,7 @@ const pricingPlans = [
     features: [
       "Unlimited veterinarians",
       "Full feature access",
-      "Tails AI assistant",
+      "Pet Vault AI assistant",
       "Advanced reporting & analytics",
       "Telemedicine platform",
       "Custom integrations",

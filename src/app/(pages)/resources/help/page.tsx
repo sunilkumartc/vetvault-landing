@@ -84,8 +84,8 @@ const popularArticles = [
     rating: 4.8,
   },
   {
-    title: "Getting Started with Tails AI Assistant",
-    category: "AI Assistant (Tails)",
+    title: "Getting Started with Pet Vault AI Assistant",
+    category: "AI Assistant (Pet Vault)",
     views: 11230,
     rating: 4.7,
   },

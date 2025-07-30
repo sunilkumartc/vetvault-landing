@@ -23,21 +23,22 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://vetvault.com'),
   title: {
-    default: "VetVault - All-in-One Veterinary Practice Management Software",
-    template: "%s | VetVault"
+    default: "VetVault - Digital Sanctuary for Veterinary Excellence",
+    template: "%s | VetVault Digital Sanctuary"
   },
-  description: "Cutting-edge veterinary software for simpler operations, improved pet care, and getting home on time. Trusted by 1000+ practices worldwide.",
+  description: "Transform your veterinary practice into a digital sanctuary where compassion meets technology. AI-powered pet care, intelligent workflows, and exceptional experiences for every pet and family.",
   keywords: [
     "veterinary software",
-    "practice management",
-    "PIMS",
-    "veterinary records",
-    "appointment scheduling",
+    "digital sanctuary",
+    "pet care technology",
+    "AI veterinary assistant",
+    "Pet Vault AI",
+    "veterinary practice management",
     "pet health records",
     "veterinary clinic software",
     "animal hospital management",
-    "veterinary billing",
-    "pet care software"
+    "compassionate pet care",
+    "veterinary digital platform"
   ],
   authors: [{ name: "VetVault Team" }],
   creator: "VetVault",
@@ -51,22 +52,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://vetvault.com',
-    siteName: 'VetVault',
-    title: 'VetVault - All-in-One Veterinary Practice Management Software',
-    description: 'Cutting-edge veterinary software for simpler operations, improved pet care, and getting home on time. Trusted by 1000+ practices worldwide.',
+    siteName: 'VetVault Digital Sanctuary',
+    title: 'VetVault - Digital Sanctuary for Veterinary Excellence',
+    description: 'Transform your veterinary practice into a digital sanctuary where compassion meets technology. AI-powered pet care, intelligent workflows, and exceptional experiences.',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'VetVault - Veterinary Practice Management Software',
+        alt: 'VetVault Digital Sanctuary - Where Veterinary Magic Meets Modern Technology',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'VetVault - All-in-One Veterinary Practice Management Software',
-    description: 'Cutting-edge veterinary software for simpler operations, improved pet care, and getting home on time.',
+    title: 'VetVault - Digital Sanctuary for Veterinary Excellence',
+    description: 'Transform your veterinary practice into a digital sanctuary where compassion meets technology.',
     images: ['/og-image.jpg'],
     creator: '@vetvault',
   },
@@ -110,11 +111,12 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "VetVault",
+              "name": "VetVault Digital Sanctuary",
               "url": "https://vetvault.com",
               "logo": "https://vetvault.com/logo.png",
-              "description": "All-in-One Veterinary Practice Management Software",
+              "description": "Digital Sanctuary for Veterinary Excellence - Where compassion meets technology",
               "foundingDate": "2020",
+              "slogan": "Where Veterinary Magic Meets Modern Technology",
               "contactPoint": {
                 "@type": "ContactPoint",
                 "telephone": "+1-800-VETVAULT",
@@ -137,10 +139,10 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "SoftwareApplication",
-              "name": "VetVault",
+              "name": "VetVault Digital Sanctuary",
               "applicationCategory": "BusinessApplication",
               "operatingSystem": "Web, iOS, Android",
-              "description": "Comprehensive veterinary practice management software",
+              "description": "Digital sanctuary platform for veterinary excellence with AI-powered pet care and compassionate technology",
               "offers": {
                 "@type": "Offer",
                 "price": "0",
@@ -148,9 +150,17 @@ export default function RootLayout({
               },
               "aggregateRating": {
                 "@type": "AggregateRating",
-                "ratingValue": "4.8",
+                "ratingValue": "4.9",
                 "ratingCount": "1250"
-              }
+              },
+              "featureList": [
+                "AI-Powered Veterinary Assistant (Pet Vault AI)",
+                "Digital Pet Health Records",
+                "Smart Appointment Scheduling",
+                "Compassionate Communication Tools",
+                "Inventory Intelligence",
+                "Mobile Pet Parent Portal"
+              ]
             })
           }}
         />

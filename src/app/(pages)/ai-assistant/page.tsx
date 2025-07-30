@@ -3,6 +3,7 @@ import Footer from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 import {
   Zap,
   CheckCircle,
@@ -187,7 +188,7 @@ export default function AIAssistantPage() {
                 AI-Powered Veterinary Assistant
               </Badge>
               <h1 className="text-4xl sm:text-5xl font-bold mb-6">
-                Meet Tails, Your AI Veterinary Assistant
+                Meet Pet Vault AI, Your AI Veterinary Assistant
               </h1>
               <p className="text-xl text-purple-100 mb-8 max-w-3xl mx-auto">
                 Revolutionize your veterinary practice with AI-powered pet management, 
@@ -209,8 +210,17 @@ export default function AIAssistantPage() {
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
+              <div className="flex justify-center mb-6">
+                <Image
+                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=200&fit=crop&crop=center"
+                  alt="AI-powered veterinary analytics and efficiency dashboard"
+                  width={400}
+                  height={200}
+                  className="rounded-lg shadow-lg"
+                />
+              </div>
               <h2 className="text-3xl font-bold text-slate-900 mb-4">
-                Why Veterinarians Love Tails AI
+                Why Veterinarians Love Pet Vault AI
               </h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto">
                 Experience the future of veterinary care with AI-powered assistance
@@ -275,7 +285,7 @@ export default function AIAssistantPage() {
                 Real-World AI Applications
               </h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                See how Tails AI transforms everyday veterinary tasks
+                See how Pet Vault AI transforms everyday veterinary tasks
               </p>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -307,6 +317,15 @@ export default function AIAssistantPage() {
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
+              <div className="flex justify-center mb-6">
+                <Image
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop&crop=center"
+                  alt="Complete AI-powered veterinary management system dashboard"
+                  width={400}
+                  height={200}
+                  className="rounded-lg shadow-lg"
+                />
+              </div>
               <h2 className="text-3xl font-bold text-slate-900 mb-4">
                 Complete AI-Powered Pet Management
               </h2>
@@ -342,10 +361,24 @@ export default function AIAssistantPage() {
         {/* AI Demo Section */}
         <section className="py-20 bg-gradient-to-br from-purple-50 to-indigo-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* AI Dashboard Preview */}
+            <div className="text-center mb-16">
+              <div className="relative">
+                <Image
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=300&fit=crop&crop=center"
+                  alt="Pet Vault AI dashboard interface showing AI-powered features, analytics, and intelligent insights"
+                  width={1200}
+                  height={300}
+                  className="w-full h-auto rounded-2xl shadow-2xl"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-indigo-500/20 rounded-2xl"></div>
+              </div>
+            </div>
+            
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl font-bold text-slate-900 mb-6">
-                  Experience Tails AI in Action
+                  Experience Pet Vault AI in Action
                 </h2>
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
@@ -386,13 +419,14 @@ export default function AIAssistantPage() {
                   </div>
                 </div>
               </div>
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <div className="text-center">
+              <div className="bg-white rounded-2xl p-8 shadow-lg relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-full -translate-y-16 translate-x-16 opacity-50"></div>
+                <div className="text-center relative z-10">
                   <div className="w-24 h-24 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Zap className="w-12 h-12 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900 mb-4">
-                    Try Tails AI Today
+                    Try Pet Vault AI Today
                   </h3>
                   <p className="text-slate-700 mb-6">
                     Experience the power of AI in veterinary care with a free trial
@@ -418,11 +452,20 @@ export default function AIAssistantPage() {
         <section className="py-20 bg-slate-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
+              <div className="flex justify-center mb-6">
+                <Image
+                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=200&h=100&fit=crop&crop=center"
+                  alt="AI-powered veterinary analytics and success metrics dashboard"
+                  width={200}
+                  height={100}
+                  className="rounded-lg shadow-lg"
+                />
+              </div>
               <h2 className="text-3xl font-bold text-slate-900 mb-4">
                 Trusted by Veterinarians Nationwide
               </h2>
               <p className="text-xl text-slate-600">
-                See how Tails AI is transforming veterinary practices
+                See how Pet Vault AI is transforming veterinary practices
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -458,22 +501,31 @@ export default function AIAssistantPage() {
         {/* CTA Section */}
         <section className="py-20 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="flex justify-center mb-8">
+              <Image
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=150&fit=crop&crop=center"
+                alt="AI-powered veterinary transformation dashboard showing efficiency gains"
+                width={300}
+                height={150}
+                className="rounded-lg shadow-lg"
+              />
+            </div>
             <h2 className="text-3xl font-bold text-slate-900 mb-6">
               Ready to Experience AI-Powered Veterinary Care?
             </h2>
             <p className="text-xl text-slate-600 mb-8">
-              Start your free trial and see how Tails AI can transform your veterinary practice.
+                              Start your free trial and see how Pet Vault AI can transform your veterinary practice.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
-                Try Tails AI Free
+                Try Pet Vault AI Free
               </Button>
               <Button size="lg" variant="outline">
                 Schedule Demo
               </Button>
             </div>
             <p className="text-sm text-slate-500 mt-4">
-              Join 5,000+ veterinarians already using Tails AI
+                              Join 5,000+ veterinarians already using Pet Vault AI
             </p>
           </div>
         </section>

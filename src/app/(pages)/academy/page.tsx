@@ -41,7 +41,7 @@ const courses = [
   },
   {
     title: "AI Assistant Mastery",
-    description: "Unlock the full potential of Tails AI for veterinary practice",
+    description: "Unlock the full potential of Pet Vault AI for veterinary practice",
     duration: "4 hours",
     level: "Advanced",
     lessons: 24,
