@@ -88,9 +88,9 @@ export default function Header() {
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50 border-b">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-3">
+        <div className="flex items-center py-3">
           {/* Enhanced Logo */}
-          <Link href="/" className="flex items-center mr-4 group">
+          <Link href="/" className="flex items-center mr-8 group">
             <div className="relative">
               <PawPrint className="w-7 h-7 text-cyan-500 mr-2 group-hover:scale-110 transition-transform duration-200" />
               <Sparkles className="w-2.5 h-2.5 text-indigo-500 absolute -top-1 -right-1 group-hover:animate-pulse" />
@@ -102,7 +102,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <NavigationMenu className="hidden lg:flex">
+          <NavigationMenu className="hidden lg:flex flex-1">
             <NavigationMenuList className="space-x-1">
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="text-slate-600 hover:text-slate-900 text-sm px-3 py-2">
@@ -186,7 +186,7 @@ export default function Header() {
                   Resources
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="grid gap-3 p-6 w-[400px]">
+                  <div className="grid gap-3 p-6 w-[500px] grid-cols-2">
                     {resourcesItems.map((item) => (
                       <NavigationMenuLink key={item.title} asChild>
                         <Link
@@ -240,7 +240,7 @@ export default function Header() {
                 <Menu className="w-5 h-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+            <SheetContent side="left" className="w-[300px] sm:w-[400px]">
               <div className="flex flex-col space-y-4 mt-8">
                 <Link
                   href="/solutions"
