@@ -1,3 +1,5 @@
+"use client";
+import { useState, useEffect } from "react";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
@@ -5,357 +7,351 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
   Building2,
-  CheckCircle,
-  ArrowRight,
   Globe,
   Users,
   BarChart3,
-  Database,
-  Smartphone,
   Shield,
-  Zap,
+  ArrowRight,
+  TrendingUp,
+  Clock,
 } from "lucide-react";
+import Image from "next/image";
 
-const benefits = [
-  {
-    icon: <Globe className="w-8 h-8" />,
-    title: "Centralized Management",
-    description: "Manage all locations from one dashboard with real-time data sync",
-  },
-  {
-    icon: <Users className="w-8 h-8" />,
-    title: "Staff Coordination",
-    description: "Share staff, resources, and expertise across all locations seamlessly",
-  },
-  {
-    icon: <BarChart3 className="w-8 h-8" />,
-    title: "Unified Analytics",
-    description: "Get comprehensive insights across all locations and performance metrics",
-  },
-  {
-    icon: <Database className="w-8 h-8" />,
-    title: "Shared Pet Records",
-    description: "Access patient records from any location for better continuity of care",
-  },
+const locations = [
+  { name: "Downtown Clinic", status: "online", patients: 45, staff: 8 },
+  { name: "Suburban Branch", status: "online", patients: 32, staff: 6 },
+  { name: "Emergency Center", status: "busy", patients: 18, staff: 12 },
+  { name: "Mobile Unit", status: "online", patients: 12, staff: 3 },
 ];
 
 const features = [
   {
-    title: "Multi-Location Dashboard",
-    description: "Centralized control panel to manage all your veterinary locations from one place",
-    details: [
-      "Real-time location overview",
-      "Cross-location reporting",
-      "Resource allocation",
-      "Performance comparisons",
-      "Unified settings management",
-    ],
+    icon: <Globe className="w-8 h-8" />,
+    title: "Centralized Management",
+    description: "Control all locations from one unified dashboard",
+    stats: "Manage up to 50+ locations",
   },
   {
-    title: "Shared Pet Health Records",
-    description: "Seamless access to patient records across all locations for better care coordination",
-    details: [
-      "Unified patient database",
-      "Cross-location record access",
-      "Treatment history sharing",
-      "Vaccination tracking",
-      "Medical image sharing",
-    ],
-  },
-  {
-    title: "Staff Management",
-    description: "Coordinate staff schedules, training, and resources across multiple locations",
-    details: [
-      "Cross-location scheduling",
-      "Staff performance tracking",
-      "Training management",
-      "Resource sharing",
-      "Communication tools",
-    ],
-  },
-  {
-    title: "Inventory & Supply Chain",
-    description: "Centralized inventory management with location-specific tracking and automated reordering",
-    details: [
-      "Centralized inventory control",
-      "Location-specific stock levels",
-      "Automated reordering",
-      "Cost analysis by location",
-      "Supplier management",
-    ],
-  },
-  {
-    title: "Financial Management",
-    description: "Comprehensive financial reporting and billing across all locations",
-    details: [
-      "Unified financial reporting",
-      "Location-specific analytics",
-      "Cross-location billing",
-      "Revenue optimization",
-      "Cost tracking",
-    ],
-  },
-  {
-    title: "Client Experience",
-    description: "Consistent pet owner experience across all locations with unified branding",
-    details: [
-      "Unified mobile app",
-      "Consistent communication",
-      "Cross-location appointments",
-      "Shared loyalty programs",
-      "Brand consistency",
-    ],
-  },
-];
-
-const challenges = [
-  {
-    title: "Fragmented Data",
-    description: "Different systems at each location create data silos and inefficiencies",
-    solution: "Unified platform with real-time data synchronization across all locations",
-  },
-  {
-    title: "Inconsistent Care",
-    description: "Pet owners receive different experiences and care quality across locations",
-    solution: "Standardized protocols and shared medical records ensure consistent care",
-  },
-  {
-    title: "Resource Waste",
-    description: "Duplicated efforts and inefficient resource allocation across locations",
-    solution: "Centralized management and resource sharing optimize operations",
-  },
-  {
+    icon: <Users className="w-8 h-8" />,
     title: "Staff Coordination",
-    description: "Difficulty coordinating staff, training, and expertise across locations",
-    solution: "Integrated staff management and communication tools",
-  },
-];
-
-const testimonials = [
-  {
-    name: "Dr. Emily Rodriguez",
-    practice: "Pawsome Veterinary Group",
-    locations: "5 locations across California",
-    quote: "VetVault's multi-location features have transformed how we operate. We can now provide consistent care across all our locations while maintaining local flexibility.",
-    rating: 5,
+    description: "Share resources and staff across locations seamlessly",
+    stats: "30% improvement in staff utilization",
   },
   {
-    name: "Dr. James Wilson",
-    practice: "Metro Animal Hospitals",
-    locations: "8 locations in Texas",
-    quote: "The centralized dashboard gives us complete visibility into all locations. We've increased efficiency by 40% and improved patient care coordination.",
-    rating: 5,
+    icon: <BarChart3 className="w-8 h-8" />,
+    title: "Cross-Location Analytics",
+    description: "Compare performance and identify growth opportunities",
+    stats: "Real-time insights across all locations",
+  },
+  {
+    icon: <Shield className="w-8 h-8" />,
+    title: "Unified Security",
+    description: "Enterprise-grade security with role-based access",
+    stats: "HIPAA compliant across all locations",
   },
 ];
 
 export default function MultiLocationPage() {
+  const [selectedLocation, setSelectedLocation] = useState(0);
+  const [isAnimated, setIsAnimated] = useState(false);
+
+  useEffect(() => {
+    setIsAnimated(true);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <Header />
 
-      <main>
-        {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-indigo-600 to-cyan-600 text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <Badge className="bg-white/20 text-white border-white/30 mb-4">
-                Multi-Location Veterinary Management
+      {/* Hero Section */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 opacity-95"></div>
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=1920&h=1080&fit=crop"
+            alt="Multi-location veterinary practice"
+            fill
+            className="object-cover"
+          />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div
+              className={`text-white transition-all duration-1000 ${
+                isAnimated
+                  ? "translate-x-0 opacity-100"
+                  : "-translate-x-10 opacity-0"
+              }`}
+            >
+              <Badge className="mb-6 bg-white/20 text-white border-white/30">
+                <Building2 className="w-4 h-4 mr-2" />
+                Multi-Location Solution
               </Badge>
-              <h1 className="text-4xl sm:text-5xl font-bold mb-6">
-                Unify Your Multi-Location Veterinary Practice
+              <h1 className="text-4xl sm:text-6xl font-bold mb-6 leading-tight">
+                Scale Your{" "}
+                <span className="text-cyan-300">Veterinary Empire</span>
               </h1>
-              <p className="text-xl text-indigo-100 mb-8 max-w-3xl mx-auto">
-                Manage multiple veterinary locations seamlessly with centralized pet management, 
-                shared records, and unified operations all in one platform.
+              <p className="text-xl mb-8 text-blue-100">
+                Manage multiple locations, staff, and operations from one
+                powerful platform designed for growth.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-white text-indigo-600 hover:bg-slate-100">
-                  Start Free Trial
+
+              <div className="flex flex-col sm:flex-row gap-4 mb-12">
+                <Button
+                  size="lg"
+                  className="bg-white text-blue-600 hover:bg-slate-100"
+                >
+                  Schedule Enterprise Demo
                 </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                  Schedule Demo
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white text-white hover:bg-white/10 bg-transparent"
+                >
+                  View Case Studies
                 </Button>
               </div>
-            </div>
-          </div>
-        </section>
 
-        {/* Benefits Section */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold text-slate-900 mb-4">
-                Why Multi-Location Practices Choose VetVault
-              </h2>
-              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                Streamline operations, improve care coordination, and grow your veterinary group efficiently
-              </p>
+              <div className="grid grid-cols-3 gap-6">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-cyan-300">500+</div>
+                  <div className="text-blue-100">Multi-location practices</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-cyan-300">2000+</div>
+                  <div className="text-blue-100">Connected locations</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-cyan-300">99.9%</div>
+                  <div className="text-blue-100">Uptime guarantee</div>
+                </div>
+              </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {benefits.map((benefit, index) => (
-                <Card key={index} className="text-center p-6">
-                  <CardContent className="p-0">
-                    <div className="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center text-indigo-600 mx-auto mb-4">
-                      {benefit.icon}
-                    </div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-2">
-                      {benefit.title}
-                    </h3>
-                    <p className="text-slate-600">
-                      {benefit.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
 
-        {/* Challenges & Solutions */}
-        <section className="py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold text-slate-900 mb-4">
-                Common Multi-Location Challenges & Solutions
-              </h2>
-              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                See how VetVault addresses the unique challenges of managing multiple veterinary locations
-              </p>
-            </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {challenges.map((challenge, index) => (
-                <Card key={index} className="p-8">
-                  <CardContent className="p-0">
-                    <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center text-red-600 flex-shrink-0">
-                        <Shield className="w-6 h-6" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-bold text-slate-900 mb-2">
-                          {challenge.title}
-                        </h3>
-                        <p className="text-slate-600 mb-4">
-                          {challenge.description}
-                        </p>
-                        <div className="bg-green-50 p-4 rounded-lg">
-                          <div className="flex items-start space-x-2">
-                            <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                            <p className="text-green-800 font-medium">
-                              {challenge.solution}
-                            </p>
-                          </div>
+            <div
+              className={`transition-all duration-1000 delay-300 ${
+                isAnimated
+                  ? "translate-x-0 opacity-100"
+                  : "translate-x-10 opacity-0"
+              }`}
+            >
+              <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-6">
+                <h3 className="text-white text-xl font-semibold mb-4">
+                  Live Location Status
+                </h3>
+                <div className="space-y-4">
+                  {locations.map((location, index) => (
+                    <div
+                      key={index}
+                      className={`p-4 rounded-lg cursor-pointer transition-all ${
+                        selectedLocation === index
+                          ? "bg-white/20"
+                          : "bg-white/10 hover:bg-white/15"
+                      }`}
+                      onClick={() => setSelectedLocation(index)}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-3">
+                          <div
+                            className={`w-3 h-3 rounded-full ${
+                              location.status === "online"
+                                ? "bg-green-400"
+                                : location.status === "busy"
+                                ? "bg-yellow-400"
+                                : "bg-red-400"
+                            }`}
+                          ></div>
+                          <span className="text-white font-medium">
+                            {location.name}
+                          </span>
+                        </div>
+                        <div className="text-white/70 text-sm">
+                          {location.patients} patients • {location.staff} staff
                         </div>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
-              ))}
+                  ))}
+                </div>
+              </Card>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Features Section */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold text-slate-900 mb-4">
-                Complete Multi-Location Pet Management
-              </h2>
-              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                Every feature designed specifically for managing multiple veterinary locations
-              </p>
-            </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {features.map((feature, index) => (
-                <Card key={index} className="p-8 hover:shadow-lg transition-shadow">
-                  <CardContent className="p-0">
-                    <h3 className="text-2xl font-bold text-slate-900 mb-3">
-                      {feature.title}
-                    </h3>
-                    <p className="text-slate-600 mb-6">
-                      {feature.description}
-                    </p>
-                    <ul className="space-y-2">
-                      {feature.details.map((detail, detailIndex) => (
-                        <li key={detailIndex} className="flex items-center text-slate-700">
-                          <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
-                          {detail}
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Testimonials Section */}
-        <section className="py-20 bg-slate-100">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold text-slate-900 mb-4">
-                Trusted by Multi-Location Groups Nationwide
-              </h2>
-              <p className="text-xl text-slate-600">
-                See how veterinary groups are transforming their operations with VetVault
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {testimonials.map((testimonial, index) => (
-                <Card key={index} className="p-8">
-                  <CardContent className="p-0">
-                    <div className="flex items-center mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <span key={i} className="text-yellow-400">★</span>
-                      ))}
-                    </div>
-                    <blockquote className="text-lg text-slate-700 mb-6 italic">
-                      "{testimonial.quote}"
-                    </blockquote>
-                    <div>
-                      <div className="font-semibold text-slate-900">
-                        {testimonial.name}
-                      </div>
-                      <div className="text-slate-600">
-                        {testimonial.practice}
-                      </div>
-                      <div className="text-sm text-slate-500">
-                        {testimonial.locations}
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-20 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6">
-              Ready to Unify Your Multi-Location Practice?
+      {/* Features Grid */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">
+              Enterprise Features for{" "}
+              <span className="text-blue-600">Multi-Location Success</span>
             </h2>
-            <p className="text-xl text-slate-600 mb-8">
-              Start your free 14-day trial and see how VetVault can transform your veterinary group.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700">
-                Start Free Trial
-              </Button>
-              <Button size="lg" variant="outline">
-                Schedule Demo
-              </Button>
-            </div>
-            <p className="text-sm text-slate-500 mt-4">
-              Join 500+ multi-location veterinary groups already using VetVault
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Everything you need to manage, scale, and optimize multiple
+              veterinary locations
             </p>
           </div>
-        </section>
-      </main>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {features.map((feature, index) => (
+              <Card
+                key={index}
+                className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              >
+                <CardContent className="p-8">
+                  <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                    {feature.title}
+                  </h3>
+                  <p className="text-slate-600 mb-4">{feature.description}</p>
+                  <div className="text-blue-600 font-semibold">
+                    {feature.stats}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Dashboard Preview */}
+      <section className="py-20 bg-gradient-to-r from-slate-900 to-blue-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-4">
+              Unified Dashboard Experience
+            </h2>
+            <p className="text-xl text-blue-200">
+              Monitor all your locations in real-time
+            </p>
+          </div>
+
+          <div className="relative">
+            <Image
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop"
+              alt="Multi-location dashboard"
+              width={1200}
+              height={800}
+              className="rounded-2xl shadow-2xl mx-auto"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl"></div>
+
+            {/* Floating Stats */}
+            <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-sm rounded-lg p-4">
+              <div className="flex items-center space-x-2">
+                <TrendingUp className="w-5 h-5 text-green-600" />
+                <span className="font-semibold">Revenue: +23% this month</span>
+              </div>
+            </div>
+
+            <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm rounded-lg p-4">
+              <div className="flex items-center space-x-2">
+                <Clock className="w-5 h-5 text-blue-600" />
+                <span className="font-semibold">Avg Wait Time: 12 min</span>
+              </div>
+            </div>
+
+            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-white/90 backdrop-blur-sm rounded-lg p-4">
+              <div className="flex items-center space-x-4">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-blue-600">4</div>
+                  <div className="text-sm text-slate-600">Active Locations</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-green-600">107</div>
+                  <div className="text-sm text-slate-600">
+                    Today's Appointments
+                  </div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-purple-600">29</div>
+                  <div className="text-sm text-slate-600">Active Staff</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Success Metrics */}
+      <section className="py-20 bg-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">
+              Proven Results Across Locations
+            </h2>
+            <p className="text-xl text-slate-600">
+              See the impact VetVault has on multi-location practices
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="text-center p-8 hover:shadow-lg transition-shadow">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <TrendingUp className="w-8 h-8 text-green-600" />
+              </div>
+              <div className="text-4xl font-bold text-green-600 mb-2">35%</div>
+              <div className="text-slate-600">
+                Average revenue increase across all locations
+              </div>
+            </Card>
+
+            <Card className="text-center p-8 hover:shadow-lg transition-shadow">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Clock className="w-8 h-8 text-blue-600" />
+              </div>
+              <div className="text-4xl font-bold text-blue-600 mb-2">50%</div>
+              <div className="text-slate-600">
+                Reduction in administrative overhead
+              </div>
+            </Card>
+
+            <Card className="text-center p-8 hover:shadow-lg transition-shadow">
+              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="w-8 h-8 text-purple-600" />
+              </div>
+              <div className="text-4xl font-bold text-purple-600 mb-2">90%</div>
+              <div className="text-slate-600">
+                Staff satisfaction improvement
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+          <h2 className="text-4xl font-bold mb-6">
+            Ready to Scale Your Practice?
+          </h2>
+          <p className="text-xl mb-8 text-blue-100">
+            Join the leading multi-location veterinary practices already using
+            VetVault to grow and thrive.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              size="lg"
+              className="bg-white text-blue-600 hover:bg-slate-100 text-lg px-8 py-4"
+            >
+              Schedule Enterprise Demo
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white/10 text-lg px-8 py-4 bg-transparent"
+            >
+              Contact Sales Team
+            </Button>
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </div>
   );
-} 
+}

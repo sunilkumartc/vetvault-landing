@@ -1,9 +1,14 @@
 "use client";
-
 import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetHeader,
+  SheetTitle,
+} from "@/components/ui/sheet";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -25,6 +30,9 @@ import {
   HelpCircle,
   Download,
   Sparkles,
+  Heart,
+  ChevronDown,
+  ChevronRight,
 } from "lucide-react";
 
 const solutionsItems = [
@@ -83,13 +91,15 @@ const resourcesItems = [
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [solutionsOpen, setSolutionsOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50 border-b">
+    <header className="bg-white shadow-sm fixed top-0 left-0 right-0 z-50 border-b">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center py-3">
-          {/* Enhanced Logo */}
-          <Link href="/" className="flex items-center mr-8 group">
+        <div className="flex items-center justify-between py-3">
+          {/* Logo - Left Corner */}
+          <Link href="/" className="flex items-center group">
             <div className="relative">
               <PawPrint className="w-7 h-7 text-cyan-500 mr-2 group-hover:scale-110 transition-transform duration-200" />
               <Sparkles className="w-2.5 h-2.5 text-indigo-500 absolute -top-1 -right-1 group-hover:animate-pulse" />
@@ -100,210 +110,271 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <NavigationMenu className="hidden lg:flex flex-1">
-            <NavigationMenuList className="space-x-1">
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-slate-600 hover:text-slate-900 text-sm px-3 py-2">
-                  Solutions
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid gap-3 p-6 w-[500px] grid-cols-2">
-                    {solutionsItems.map((item) => (
-                      <NavigationMenuLink key={item.title} asChild>
-                        <Link
-                          href={item.href}
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                        >
-                          <div className="flex items-center space-x-2">
-                            {item.icon}
-                            <div className="text-sm font-medium leading-none">
-                              {item.title}
+          {/* Desktop Navigation - Right Side */}
+          <div className="hidden lg:flex items-center space-x-4">
+            <NavigationMenu>
+              <NavigationMenuList className="space-x-1">
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="text-slate-600 hover:text-slate-900 text-sm px-3 py-2">
+                    Solutions
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid gap-3 p-6 w-[500px] grid-cols-2">
+                      {solutionsItems.map((item) => (
+                        <NavigationMenuLink key={item.title} asChild>
+                          <Link
+                            href={item.href}
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          >
+                            <div className="flex items-center space-x-2">
+                              {item.icon}
+                              <div className="text-sm font-medium leading-none">
+                                {item.title}
+                              </div>
                             </div>
-                          </div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            {item.description}
-                          </p>
-                        </Link>
-                      </NavigationMenuLink>
-                    ))}
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                              {item.description}
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      ))}
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
 
-              <NavigationMenuItem>
-                <Link
-                  href="/features"
-                  className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md transition-colors text-sm"
-                >
-                  Features
-                </Link>
-              </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Link
+                    href="/features"
+                    className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md transition-colors text-sm"
+                  >
+                    Features
+                  </Link>
+                </NavigationMenuItem>
 
-              <NavigationMenuItem>
-                <Link
-                  href="/ai-assistant"
-                  className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md transition-colors flex items-center text-sm whitespace-nowrap"
-                >
-                  <Zap className="w-4 h-4 mr-1 text-indigo-500" />
-                  <span className="relative">
-                    Pet Vault AI
-                    <Sparkles className="w-2 h-2 text-cyan-500 absolute -top-1 -right-2" />
-                  </span>
-                </Link>
-              </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Link
+                    href="/ai-assistant"
+                    className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md transition-colors flex items-center text-sm whitespace-nowrap"
+                  >
+                    <Zap className="w-4 h-4 mr-1 text-indigo-500" />
+                    <span className="relative">
+                      Pet Vault AI
+                      <Sparkles className="w-2 h-2 text-cyan-500 absolute -top-1 -right-2" />
+                    </span>
+                  </Link>
+                </NavigationMenuItem>
 
-              <NavigationMenuItem>
-                <Link
-                  href="/integrations"
-                  className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md transition-colors text-sm"
-                >
-                  Integrations
-                </Link>
-              </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Link
+                    href="/integrations"
+                    className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md transition-colors text-sm"
+                  >
+                    Integrations
+                  </Link>
+                </NavigationMenuItem>
 
-              <NavigationMenuItem>
-                <Link
-                  href="/pricing"
-                  className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md transition-colors text-sm"
-                >
-                  Pricing
-                </Link>
-              </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Link
+                    href="/pricing"
+                    className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md transition-colors text-sm"
+                  >
+                    Pricing
+                  </Link>
+                </NavigationMenuItem>
 
-              <NavigationMenuItem>
-                <Link
-                  href="/academy"
-                  className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md transition-colors text-sm"
-                >
-                  Academy
-                </Link>
-              </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Link
+                    href="/academy"
+                    className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md transition-colors text-sm"
+                  >
+                    Academy
+                  </Link>
+                </NavigationMenuItem>
 
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-slate-600 hover:text-slate-900 text-sm px-3 py-2">
-                  Resources
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid gap-3 p-6 w-[500px] grid-cols-2">
-                    {resourcesItems.map((item) => (
-                      <NavigationMenuLink key={item.title} asChild>
-                        <Link
-                          href={item.href}
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                        >
-                          <div className="flex items-center space-x-2">
-                            {item.icon}
-                            <div className="text-sm font-medium leading-none">
-                              {item.title}
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="text-slate-600 hover:text-slate-900 text-sm px-3 py-2">
+                    Resources
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid gap-3 p-6 w-[500px] grid-cols-2">
+                      {resourcesItems.map((item) => (
+                        <NavigationMenuLink key={item.title} asChild>
+                          <Link
+                            href={item.href}
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          >
+                            <div className="flex items-center space-x-2">
+                              {item.icon}
+                              <div className="text-sm font-medium leading-none">
+                                {item.title}
+                              </div>
                             </div>
-                          </div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            {item.description}
-                          </p>
-                        </Link>
-                      </NavigationMenuLink>
-                    ))}
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                              {item.description}
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      ))}
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
 
-          {/* Desktop Actions */}
-          <div className="hidden lg:flex items-center space-x-3">
+            {/* Start Magic Button - Right Margin */}
             <Button
-              variant="ghost"
               size="sm"
-              className="text-cyan-500 hover:text-cyan-600 text-sm"
+              className="bg-indigo-600 hover:bg-indigo-700 text-white text-sm px-4"
             >
-              Login
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-slate-600 hover:text-slate-700 text-sm"
-            >
-              Help Center
-            </Button>
-            <Button size="sm" className="bg-indigo-600 hover:bg-indigo-700 text-white text-sm px-4">
               <Sparkles className="w-3 h-3 mr-1" />
               Start Magic
             </Button>
           </div>
 
-          {/* Mobile Menu */}
+          {/* Mobile Menu - Right Side */}
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild className="lg:hidden">
               <Button variant="ghost" size="icon">
                 <Menu className="w-5 h-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-[300px] sm:w-[400px]">
-              <div className="flex flex-col space-y-4 mt-8">
-                <Link
-                  href="/solutions"
-                  className="text-slate-600 hover:text-slate-900 py-2"
-                >
-                  Solutions
-                </Link>
-                <Link
-                  href="/features"
-                  className="text-slate-600 hover:text-slate-900 py-2"
-                >
-                  Features
-                </Link>
-                <Link
-                  href="/ai-assistant"
-                  className="text-slate-600 hover:text-slate-900 py-2 flex items-center"
-                >
-                  <Zap className="w-4 h-4 mr-2 text-indigo-500" />
-                  <span className="relative">
-                    Pet Vault AI
-                    <Sparkles className="w-2 h-2 text-cyan-500 absolute -top-1 -right-2" />
-                  </span>
-                </Link>
-                <Link
-                  href="/integrations"
-                  className="text-slate-600 hover:text-slate-900 py-2"
-                >
-                  Integrations
-                </Link>
-                <Link
-                  href="/pricing"
-                  className="text-slate-600 hover:text-slate-900 py-2"
-                >
-                  Pricing
-                </Link>
-                <Link
-                  href="/academy"
-                  className="text-slate-600 hover:text-slate-900 py-2"
-                >
-                  Academy
-                </Link>
-                <Link
-                  href="/resources"
-                  className="text-slate-600 hover:text-slate-900 py-2"
-                >
-                  Resources
-                </Link>
+            <SheetContent side="right" className="w-[320px] p-0">
+              <SheetHeader className="p-6 border-b bg-slate-50">
+                <SheetTitle className="flex items-center">
+                  <div className="relative">
+                    <PawPrint className="w-6 h-6 text-cyan-500 mr-3" />
+                    <Sparkles className="w-2 h-2 text-indigo-500 absolute -top-0.5 -right-0.5" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-slate-900">
+                      VetVault
+                    </h3>
+                    <p className="text-xs text-slate-500 -mt-0.5">
+                      Digital Sanctuary
+                    </p>
+                  </div>
+                </SheetTitle>
+              </SheetHeader>
 
-                <div className="flex flex-col space-y-2 pt-4 border-t">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="justify-start text-cyan-500"
+              <div className="py-4">
+                <div className="space-y-1">
+                  {/* Solutions with Submenu */}
+                  <div>
+                    <button
+                      onClick={() => setSolutionsOpen(!solutionsOpen)}
+                      className="flex items-center justify-between w-full px-6 py-3 text-slate-700 hover:bg-slate-50 transition-colors"
+                    >
+                      <span className="font-medium">Solutions</span>
+                      {solutionsOpen ? (
+                        <ChevronDown className="w-4 h-4" />
+                      ) : (
+                        <ChevronRight className="w-4 h-4" />
+                      )}
+                    </button>
+                    {solutionsOpen && (
+                      <div className="bg-slate-50 border-l-2 border-indigo-200 ml-6">
+                        {solutionsItems.map((item) => (
+                          <Link
+                            key={item.title}
+                            href={item.href}
+                            className="flex items-center px-6 py-2.5 text-sm text-slate-600 hover:text-indigo-600 hover:bg-white transition-colors"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            <span className="mr-3">{item.icon}</span>
+                            {item.title}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Features */}
+                  <Link
+                    href="/features"
+                    className="flex items-center px-6 py-3 text-slate-700 hover:bg-slate-50 transition-colors font-medium"
+                    onClick={() => setMobileMenuOpen(false)}
                   >
-                    Login
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="justify-start text-slate-600"
+                    Features
+                  </Link>
+
+                  {/* Pet Vault AI */}
+                  <Link
+                    href="/ai-assistant"
+                    className="flex items-center px-6 py-3 text-slate-700 hover:bg-slate-50 transition-colors font-medium"
+                    onClick={() => setMobileMenuOpen(false)}
                   >
-                    Help Center
-                  </Button>
-                  <Button size="sm" className="bg-indigo-600 hover:bg-indigo-700 text-white">
+                    <Zap className="w-4 h-4 mr-2 text-indigo-500" />
+                    <span className="relative">
+                      Pet Vault AI
+                      <Sparkles className="w-2 h-2 text-cyan-500 absolute -top-1 -right-2" />
+                    </span>
+                  </Link>
+
+                  {/* Integrations */}
+                  <Link
+                    href="/integrations"
+                    className="flex items-center px-6 py-3 text-slate-700 hover:bg-slate-50 transition-colors font-medium"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Integrations
+                  </Link>
+
+                  {/* Pricing */}
+                  <Link
+                    href="/pricing"
+                    className="flex items-center px-6 py-3 text-slate-700 hover:bg-slate-50 transition-colors font-medium"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Pricing
+                  </Link>
+
+                  {/* Academy */}
+                  <Link
+                    href="/academy"
+                    className="flex items-center px-6 py-3 text-slate-700 hover:bg-slate-50 transition-colors font-medium"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Academy
+                  </Link>
+
+                  {/* Resources with Submenu */}
+                  <div>
+                    <button
+                      onClick={() => setResourcesOpen(!resourcesOpen)}
+                      className="flex items-center justify-between w-full px-6 py-3 text-slate-700 hover:bg-slate-50 transition-colors"
+                    >
+                      <span className="font-medium">Resources</span>
+                      {resourcesOpen ? (
+                        <ChevronDown className="w-4 h-4" />
+                      ) : (
+                        <ChevronRight className="w-4 h-4" />
+                      )}
+                    </button>
+                    {resourcesOpen && (
+                      <div className="bg-slate-50 border-l-2 border-indigo-200 ml-6">
+                        {resourcesItems.map((item) => (
+                          <Link
+                            key={item.title}
+                            href={item.href}
+                            className="flex items-center px-6 py-2.5 text-sm text-slate-600 hover:text-indigo-600 hover:bg-white transition-colors"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            <span className="mr-3">{item.icon}</span>
+                            {item.title}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Start Magic Button */}
+                <div className="px-6 pt-6 border-t mt-6">
+                  <Button
+                    size="sm"
+                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
                     <Sparkles className="w-3 h-3 mr-1" />
                     Start Magic
                   </Button>

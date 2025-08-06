@@ -11,31 +11,33 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="py-12 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-slate-100">
+    <section className="pt-20 pb-8 lg:pt-24 lg:pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-slate-100">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            <div className="space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="space-y-6 lg:space-y-8">
+            <div className="space-y-4 lg:space-y-6">
               {/* Unique Brand Badge */}
               <div className="flex items-center gap-2 mb-4">
-                <div className="flex items-center gap-2 bg-gradient-to-r from-indigo-100 to-cyan-100 px-4 py-2 rounded-full">
-                  <Sparkles className="w-4 h-4 text-indigo-600" />
-                  <span className="text-sm font-semibold text-indigo-700">Powered by Pet Vault AI</span>
+                <div className="flex items-center gap-2 bg-gradient-to-r from-indigo-100 to-cyan-100 px-3 py-1.5 lg:px-4 lg:py-2 rounded-full">
+                  <Sparkles className="w-3 h-3 lg:w-4 lg:h-4 text-indigo-600" />
+                  <span className="text-xs lg:text-sm font-semibold text-indigo-700">
+                    Powered by Pet Vault AI
+                  </span>
                 </div>
               </div>
-
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-slate-900 leading-tight">
                 Where <span className="text-indigo-600">Veterinary Magic</span>{" "}
                 Meets Modern Technology
               </h1>
-              <p className="text-xl text-slate-600 leading-relaxed">
-                The only veterinary platform that combines AI-powered pet care with human compassion. 
-                Transform your practice into a digital sanctuary where every pet gets VIP treatment.
+              <p className="text-lg lg:text-xl text-slate-600 leading-relaxed">
+                The only veterinary platform that combines AI-powered pet care
+                with human compassion. Transform your practice into a digital
+                sanctuary where every pet gets VIP treatment.
               </p>
             </div>
 
             {/* Unique Value Propositions */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 lg:gap-4 mb-4 lg:mb-6">
               <div className="flex items-center gap-2 text-sm text-slate-600">
                 <Heart className="w-4 h-4 text-red-500" />
                 <span>Compassionate Care</span>
@@ -50,27 +52,27 @@ export default function HeroSection() {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 lg:gap-4">
               <Button
                 size="lg"
-                className="bg-indigo-600 hover:bg-indigo-700 text-lg px-8 py-4 rounded-lg transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+                className="bg-indigo-600 hover:bg-indigo-700 text-base lg:text-lg px-6 py-3 lg:px-8 lg:py-4 rounded-lg transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
                 onClick={scrollToGetStarted}
               >
-                <Sparkles className="w-5 h-5 mr-2" />
+                <Sparkles className="w-4 h-4 lg:w-5 lg:h-5 mr-2" />
                 Start Your Magic
               </Button>
               <Button
                 variant="outline"
                 size="lg"
-                className="text-lg px-8 py-4 rounded-lg border-indigo-200 text-indigo-600 hover:bg-indigo-50 bg-transparent"
+                className="text-base lg:text-lg px-6 py-3 lg:px-8 lg:py-4 rounded-lg border-indigo-200 text-indigo-600 hover:bg-indigo-50 bg-transparent"
               >
-                <Heart className="w-5 h-5 mr-2" />
+                <Heart className="w-4 h-4 lg:w-5 lg:h-5 mr-2" />
                 See the Magic
               </Button>
             </div>
 
             {/* Enhanced Social Proof */}
-            <div className="flex flex-wrap items-center gap-6 text-slate-600">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-4 lg:gap-6 text-slate-600">
               <div className="flex items-center">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
@@ -80,7 +82,9 @@ export default function HeroSection() {
                     />
                   ))}
                 </div>
-                <span className="ml-2 font-medium">4.9/5 from 75+ reviews</span>
+                <span className="ml-2 text-sm font-medium">
+                  4.9/5 from 75+ reviews
+                </span>
               </div>
               <div className="text-sm">
                 <span className="font-semibold text-indigo-600">1000+</span>{" "}
@@ -93,7 +97,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          <div className="relative">
+          <div className="relative mt-8 lg:mt-0">
             <div className="relative z-10">
               <Image
                 src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=800&h=600&fit=crop&crop=center"
@@ -105,10 +109,9 @@ export default function HeroSection() {
               />
             </div>
             <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-2xl transform rotate-3 scale-105 opacity-20"></div>
-            
             {/* Floating Elements for Magic Effect */}
-            <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-full opacity-80 animate-pulse"></div>
-            <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-cyan-400 to-indigo-400 rounded-full opacity-60 animate-bounce"></div>
+            <div className="absolute -top-2 -right-2 lg:-top-4 lg:-right-4 w-6 h-6 lg:w-8 lg:h-8 bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-full opacity-80 animate-pulse"></div>
+            <div className="absolute -bottom-2 -left-2 lg:-bottom-4 lg:-left-4 w-4 h-4 lg:w-6 lg:h-6 bg-gradient-to-r from-cyan-400 to-indigo-400 rounded-full opacity-60 animate-bounce"></div>
           </div>
         </div>
       </div>
