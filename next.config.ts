@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
       "via.placeholder.com",
       "www.imghippo.com", // ✅ Add this domain
       "unsplash.com", // ✅ Add this line
-
+      "i.ibb.co", // ✅ Add this line
 
     ],
     formats: ['image/webp', 'image/avif'],

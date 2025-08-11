@@ -100,18 +100,21 @@ export default function HeroSection() {
           <div className="relative mt-8 lg:mt-0">
             <div className="relative z-10">
               <Image
-                src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=800&h=600&fit=crop&crop=center"
+                src="https://i.ibb.co/TMTSG0cY/Chat-GPT-Image-Aug-11-2025-10-54-52-AM.png"
                 alt="Veterinarian providing compassionate care to a happy dog in a modern veterinary clinic"
-                width={800}
-                height={600}
-                className="w-full h-auto rounded-2xl shadow-2xl"
+                width={1200} // ⬆ Increased width
+                height={1000} // ⬆ Increased height
+                className="w-[1200px] h-auto max-w-full rounded-2xl shadow-2xl" // ⬆ Force larger width, responsive limit
                 priority
               />
             </div>
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-2xl transform rotate-3 scale-105 opacity-20"></div>
-            {/* Floating Elements for Magic Effect */}
-            <div className="absolute -top-2 -right-2 lg:-top-4 lg:-right-4 w-6 h-6 lg:w-8 lg:h-8 bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-full opacity-80 animate-pulse"></div>
-            <div className="absolute -bottom-2 -left-2 lg:-bottom-4 lg:-left-4 w-4 h-4 lg:w-6 lg:h-6 bg-gradient-to-r from-cyan-400 to-indigo-400 rounded-full opacity-60 animate-bounce"></div>
+
+            {/* Background gradient */}
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-2xl transform rotate-3 scale-110 opacity-20"></div>
+
+            {/* Floating elements */}
+            <div className="absolute -top-3 -right-3 lg:-top-5 lg:-right-5 w-10 h-10 bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-full opacity-80 animate-pulse"></div>
+            <div className="absolute -bottom-3 -left-3 lg:-bottom-5 lg:-left-5 w-8 h-8 bg-gradient-to-r from-cyan-400 to-indigo-400 rounded-full opacity-60 animate-bounce"></div>
           </div>
         </div>
       </div>

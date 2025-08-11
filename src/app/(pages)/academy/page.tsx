@@ -1,4 +1,5 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
@@ -297,19 +298,18 @@ const stats = [
 
 export default function AcademyPage() {
   const [isVisible, setIsVisible] = useState(false);
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-white">
       <Header />
       <main className="pt-16">
-        {/* Hero Section */}
-        <section className="relative py-20 lg:py-32 overflow-hidden">
-          {/* Background Image with Light Overlay */}
+        {/* Hero Section - Image Only with Reduced Height */}
+        <section className="relative py-8 lg:py-12 overflow-hidden">
+          {/* Background Image Only */}
           <div className="absolute inset-0 z-0">
             <Image
               src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1920&h=1080&fit=crop&crop=center"
@@ -318,42 +318,37 @@ export default function AcademyPage() {
               className="object-cover"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-indigo-600/30 to-cyan-600/10"></div>
+            {/* Minimal overlay for text readability only */}
+            <div className="absolute inset-0 bg-black/40"></div>
           </div>
-
-          {/* Animated Floating Elements */}
-          <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full opacity-20 animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-32 h-32 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full opacity-10 animate-bounce"></div>
-          <div className="absolute top-1/2 right-1/4 w-16 h-16 bg-gradient-to-r from-cyan-300 to-blue-300 rounded-full opacity-15 animate-ping"></div>
-          <div className="absolute top-1/4 left-1/3 w-12 h-12 bg-gradient-to-r from-indigo-300 to-cyan-300 rounded-full opacity-20 animate-pulse delay-1000"></div>
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div
-              className={`text-center mb-16 transition-all duration-1000 ${
+              className={`text-center transition-all duration-1000 ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
               }`}
             >
-              <Badge className="bg-white/20 text-white border-white/30 mb-6 px-4 py-2 text-sm font-semibold backdrop-blur-sm animate-fade-in-up delay-300">
+              <Badge className="bg-white/20 text-white border-white/30 mb-4 px-4 py-2 text-sm font-semibold backdrop-blur-sm">
                 <GraduationCap className="w-4 h-4 mr-2" />
                 Veterinary Education Platform
               </Badge>
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-8 text-white leading-tight animate-fade-in-up delay-500">
-                VetVault{" "}
-                <span className="bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">
-                  Academy
-                </span>
+
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white leading-tight">
+                VetVault <span className="text-cyan-300">Academy</span>
               </h1>
-              <p className="text-xl lg:text-2xl text-blue-100 mb-12 max-w-4xl mx-auto leading-relaxed animate-fade-in-up delay-700">
+
+              <p className="text-lg lg:text-xl text-white/90 mb-6 max-w-3xl mx-auto leading-relaxed">
                 Master veterinary practice management with expert-led courses,
                 interactive workshops, and comprehensive training resources
                 designed for modern veterinary professionals.
               </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up delay-1000">
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                 <Button
                   size="lg"
-                  className="bg-white text-blue-600 hover:bg-slate-100 text-lg px-8 py-4 rounded-xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
+                  className="bg-white text-slate-900 hover:bg-slate-100 text-lg px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
                 >
                   <Sparkles className="w-5 h-5 mr-2" />
                   Start Learning Free
@@ -369,24 +364,23 @@ export default function AcademyPage() {
               </div>
             </div>
 
-            {/* Stats Section with Staggered Animation */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+            {/* Stats Section - More Compact */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {stats.map((stat, index) => (
                 <div
                   key={index}
-                  className={`text-center bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 animate-fade-in-up`}
-                  style={{ animationDelay: `${1200 + index * 200}ms` }}
+                  className="text-center bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20 hover:bg-white/20 transition-all duration-300"
                 >
-                  <div className="w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-400 rounded-2xl flex items-center justify-center text-white mx-auto mb-4 animate-bounce-slow">
+                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center text-white mx-auto mb-2">
                     {stat.icon}
                   </div>
-                  <div className="text-3xl font-bold text-white mb-2">
+                  <div className="text-xl font-bold text-white mb-1">
                     {stat.number}
                   </div>
-                  <div className="text-cyan-200 font-semibold mb-1">
+                  <div className="text-white/90 font-semibold text-xs mb-1">
                     {stat.label}
                   </div>
-                  <div className="text-blue-200 text-sm">
+                  <div className="text-white/70 text-xs">
                     {stat.description}
                   </div>
                 </div>
@@ -395,58 +389,45 @@ export default function AcademyPage() {
           </div>
         </section>
 
-        {/* Benefits Section with Slide-in Animation */}
-        <section className="py-20 lg:py-32 bg-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-white"></div>
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+        {/* Benefits Section */}
+        <section className="py-16 lg:py-24 bg-slate-50 relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
                 Why Choose{" "}
                 <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                   VetVault Academy?
                 </span>
               </h2>
-              <p className="text-xl lg:text-2xl text-slate-600 max-w-4xl mx-auto">
+              <p className="text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto">
                 Comprehensive veterinary education designed for modern practice
                 management
               </p>
             </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {benefits.map((benefit, index) => (
                 <Card
                   key={index}
-                  className="group relative overflow-hidden hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-3 border-0 bg-gradient-to-br from-white to-slate-50"
-                  style={{
-                    animation: `slideInFromLeft 0.8s ease-out ${
-                      index * 200
-                    }ms both`,
-                  }}
-                  onMouseEnter={() => setHoveredCard(index)}
-                  onMouseLeave={() => setHoveredCard(null)}
+                  className="group overflow-hidden hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 border-0 bg-white"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <CardContent className="p-8 relative z-10">
+                  <CardContent className="p-6">
                     <div className="relative mb-6">
                       <Image
                         src={benefit.image || "/placeholder.svg"}
                         alt={benefit.title}
                         width={400}
                         height={300}
-                        className={`w-full h-48 object-cover rounded-xl mb-6 transition-all duration-700 ${
-                          hoveredCard === index
-                            ? "scale-110 rotate-1"
-                            : "scale-100"
-                        }`}
+                        className="w-full h-40 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl"></div>
                     </div>
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-6 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                       {benefit.icon}
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-lg font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
                       {benefit.title}
                     </h3>
-                    <p className="text-slate-600 leading-relaxed">
+                    <p className="text-slate-600 text-sm leading-relaxed">
                       {benefit.description}
                     </p>
                   </CardContent>
@@ -456,34 +437,27 @@ export default function AcademyPage() {
           </div>
         </section>
 
-        {/* Featured Courses with Flip Animation */}
-        <section className="py-20 lg:py-32 bg-gradient-to-br from-slate-100 to-slate-200 relative">
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 w-72 h-72 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-            <div className="absolute bottom-0 right-0 w-72 h-72 bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
-          </div>
-
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+        {/* Featured Courses */}
+        <section className="py-16 lg:py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
                 Featured{" "}
                 <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                   Courses
                 </span>
               </h2>
-              <p className="text-xl lg:text-2xl text-slate-600 max-w-4xl mx-auto">
+              <p className="text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto">
                 Master veterinary practice management with our most popular
                 courses
               </p>
             </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {courses.map((course, index) => (
                 <Card
                   key={index}
-                  className="group overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:rotate-1 bg-white/80 backdrop-blur-sm border-0"
-                  style={{
-                    animation: `flipInY 0.8s ease-out ${index * 150}ms both`,
-                  }}
+                  className="group overflow-hidden hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 bg-white border-0"
                 >
                   <CardContent className="p-0">
                     <div className="relative overflow-hidden">
@@ -492,9 +466,9 @@ export default function AcademyPage() {
                         alt={course.title}
                         width={400}
                         height={300}
-                        className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700"
+                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
                       <div className="absolute top-4 left-4">
                         <Badge
                           className={`bg-gradient-to-r ${course.color} text-white border-0`}
@@ -502,8 +476,8 @@ export default function AcademyPage() {
                           {course.level}
                         </Badge>
                       </div>
-                      <div className="absolute bottom-4 left-4 right-4">
-                        <h3 className="text-xl font-bold text-white mb-2">
+                      <div className="absolute bottom-4 left-4">
+                        <h3 className="text-lg font-bold text-white">
                           {course.title}
                         </h3>
                       </div>
@@ -546,38 +520,27 @@ export default function AcademyPage() {
           </div>
         </section>
 
-        {/* Course Categories with Zoom Animation */}
-        <section className="py-20 lg:py-32 bg-white relative overflow-hidden">
-          <div className="absolute inset-0">
-            <Image
-              src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1920&h=1080&fit=crop&crop=center"
-              alt="Learning background"
-              fill
-              className="object-cover opacity-5"
-            />
-          </div>
-
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+        {/* Course Categories */}
+        <section className="py-16 lg:py-24 bg-slate-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
                 Course{" "}
                 <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                   Categories
                 </span>
               </h2>
-              <p className="text-xl lg:text-2xl text-slate-600 max-w-4xl mx-auto">
+              <p className="text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto">
                 Explore comprehensive training across all aspects of veterinary
                 practice management
               </p>
             </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {categories.map((category, index) => (
                 <Card
                   key={index}
-                  className="group overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:scale-105 cursor-pointer bg-gradient-to-br from-white to-slate-50 border-0"
-                  style={{
-                    animation: `zoomIn 0.6s ease-out ${index * 100}ms both`,
-                  }}
+                  className="group overflow-hidden hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 cursor-pointer bg-white border-0"
                 >
                   <CardContent className="p-0">
                     <div className="relative overflow-hidden">
@@ -586,11 +549,11 @@ export default function AcademyPage() {
                         alt={category.title}
                         width={300}
                         height={200}
-                        className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700"
+                        className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
                       <div className="absolute bottom-4 left-4 right-4">
-                        <h3 className="text-xl font-bold text-white mb-1">
+                        <h3 className="text-lg font-bold text-white mb-1">
                           {category.title}
                         </h3>
                         <div className="flex items-center justify-between">
@@ -613,35 +576,26 @@ export default function AcademyPage() {
           </div>
         </section>
 
-        {/* Learning Formats with Slide Animation */}
-        <section className="py-20 lg:py-32 bg-gradient-to-br from-slate-100 to-slate-200 relative">
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-            <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
-          </div>
-
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+        {/* Learning Formats */}
+        <section className="py-16 lg:py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
                 Multiple{" "}
                 <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                   Learning Formats
                 </span>
               </h2>
-              <p className="text-xl lg:text-2xl text-slate-600 max-w-4xl mx-auto">
+              <p className="text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto">
                 Choose the learning style that works best for you and your team
               </p>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {learningFormats.map((format, index) => (
                 <Card
                   key={index}
-                  className="group overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1 bg-white/80 backdrop-blur-sm border-0"
-                  style={{
-                    animation: `slideInFromRight 0.8s ease-out ${
-                      index * 200
-                    }ms both`,
-                  }}
+                  className="group overflow-hidden hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 bg-white border-0"
                 >
                   <CardContent className="p-0">
                     <div className="relative overflow-hidden">
@@ -650,32 +604,34 @@ export default function AcademyPage() {
                         alt={format.title}
                         width={500}
                         height={300}
-                        className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                      <div className="absolute bottom-4 left-4 right-4">
+                      <div className="absolute bottom-4 left-4">
                         <div
                           className={`w-12 h-12 bg-gradient-to-br ${format.color} rounded-xl flex items-center justify-center text-white mb-2 group-hover:scale-110 transition-transform duration-300`}
                         >
                           {format.icon}
                         </div>
-                        <h3 className="text-2xl font-bold text-white">
+                        <h3 className="text-xl font-bold text-white">
                           {format.title}
                         </h3>
                       </div>
                     </div>
-                    <div className="p-8">
-                      <p className="text-slate-600 mb-6 text-lg leading-relaxed">
+                    <div className="p-6">
+                      <p className="text-slate-600 mb-4 leading-relaxed">
                         {format.description}
                       </p>
-                      <ul className="space-y-3">
+                      <ul className="space-y-2">
                         {format.features.map((feature, featureIndex) => (
                           <li
                             key={featureIndex}
-                            className="flex items-center text-slate-700 group-hover:text-slate-900 transition-colors"
+                            className="flex items-center text-slate-700"
                           >
-                            <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                            <span className="font-medium">{feature}</span>
+                            <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
+                            <span className="text-sm font-medium">
+                              {feature}
+                            </span>
                           </li>
                         ))}
                       </ul>
@@ -687,31 +643,28 @@ export default function AcademyPage() {
           </div>
         </section>
 
-        {/* Testimonials Section with Fade Animation */}
-        <section className="py-20 lg:py-32 bg-white relative overflow-hidden">
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+        {/* Testimonials Section */}
+        <section className="py-16 lg:py-24 bg-slate-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
                 What Our{" "}
                 <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                   Students Say
                 </span>
               </h2>
-              <p className="text-xl lg:text-2xl text-slate-600">
+              <p className="text-lg lg:text-xl text-slate-600">
                 See how VetVault Academy is transforming veterinary practices
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {testimonials.map((testimonial, index) => (
                 <Card
                   key={index}
-                  className="group relative overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-gradient-to-br from-white to-slate-50 border-0"
-                  style={{
-                    animation: `fadeInUp 0.8s ease-out ${index * 300}ms both`,
-                  }}
+                  className="group overflow-hidden hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 bg-white border-0"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <CardContent className="p-10 relative z-10">
+                  <CardContent className="p-8">
                     <div className="flex items-center mb-6">
                       <Image
                         src={testimonial.image || "/placeholder.svg"}
@@ -740,7 +693,7 @@ export default function AcademyPage() {
                         </div>
                       </div>
                     </div>
-                    <blockquote className="text-xl text-slate-700 mb-6 italic leading-relaxed group-hover:text-slate-900 transition-colors">
+                    <blockquote className="text-lg text-slate-700 italic leading-relaxed group-hover:text-slate-900 transition-colors mb-4">
                       "{testimonial.quote}"
                     </blockquote>
                     <div className="text-sm text-blue-600 font-medium">
@@ -754,39 +707,27 @@ export default function AcademyPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 lg:py-32 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-indigo-700 to-cyan-600"></div>
-          <div className="absolute inset-0">
-            <Image
-              src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1920&h=1080&fit=crop&crop=center"
-              alt="Learning success"
-              fill
-              className="object-cover opacity-10"
-            />
-          </div>
-
-          {/* Animated Background Elements */}
-          <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full animate-pulse"></div>
-          <div className="absolute bottom-10 right-10 w-24 h-24 bg-white/5 rounded-full animate-bounce"></div>
-          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/10 rounded-full animate-ping"></div>
+        <section className="py-16 lg:py-24 bg-gradient-to-br from-blue-600 to-cyan-600 relative">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.1)_1px,transparent_0)] bg-[length:24px_24px]"></div>
 
           <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-4xl lg:text-6xl font-bold text-white mb-8">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
               Ready to Master{" "}
-              <span className="bg-gradient-to-r from-cyan-300 to-white bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-200 to-white bg-clip-text text-transparent">
                 Veterinary Practice
               </span>{" "}
               Management?
             </h2>
-            <p className="text-xl lg:text-2xl text-blue-100 mb-12 leading-relaxed">
+            <p className="text-lg lg:text-xl text-blue-100 mb-8 leading-relaxed">
               Start your learning journey with VetVault Academy today and
               transform your veterinary practice with expert knowledge and
               skills.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               <Button
                 size="lg"
-                className="bg-white text-blue-600 hover:bg-slate-100 text-lg px-10 py-5 rounded-xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
+                className="bg-white text-blue-600 hover:bg-slate-100 text-lg px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
               >
                 <Sparkles className="w-5 h-5 mr-2" />
                 Start Learning Free
@@ -795,13 +736,14 @@ export default function AcademyPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-white text-white hover:bg-white/10 text-lg px-10 py-5 rounded-xl backdrop-blur-sm bg-transparent"
+                className="border-2 border-white/30 text-white hover:bg-white/10 text-lg px-8 py-4 rounded-xl backdrop-blur-sm bg-transparent"
               >
                 <BookOpen className="w-5 h-5 mr-2" />
                 Browse All Courses
               </Button>
             </div>
-            <p className="text-blue-200 text-lg">
+
+            <p className="text-blue-200">
               Join <span className="font-bold text-white">15,000+</span>{" "}
               veterinary professionals already learning with VetVault Academy
             </p>
@@ -809,92 +751,6 @@ export default function AcademyPage() {
         </section>
       </main>
       <Footer />
-
-      <style jsx>{`
-        @keyframes slideInFromLeft {
-          from {
-            opacity: 0;
-            transform: translateX(-100px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        @keyframes slideInFromRight {
-          from {
-            opacity: 0;
-            transform: translateX(100px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        @keyframes flipInY {
-          from {
-            opacity: 0;
-            transform: perspective(400px) rotateY(90deg);
-          }
-          to {
-            opacity: 1;
-            transform: perspective(400px) rotateY(0deg);
-          }
-        }
-
-        @keyframes zoomIn {
-          from {
-            opacity: 0;
-            transform: scale(0.3);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes fade-in-up {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes bounce-slow {
-          0%,
-          100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-        }
-
-        .animate-fade-in-up {
-          animation: fade-in-up 0.8s ease-out both;
-        }
-
-        .animate-bounce-slow {
-          animation: bounce-slow 3s ease-in-out infinite;
-        }
-      `}</style>
     </div>
   );
 }

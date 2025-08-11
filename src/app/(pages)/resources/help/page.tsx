@@ -1,4 +1,5 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
@@ -257,31 +258,27 @@ export default function HelpCenterPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-white">
       <Header />
       <main className="pt-16">
-        {/* Hero Section - Compact */}
-        <section className="relative py-16 lg:py-20 overflow-hidden">
-          {/* Background Image */}
+        {/* Hero Section - Image Only with Reduced Height */}
+        <section className="relative py-8 lg:py-12 overflow-hidden">
+          {/* Background Image Only */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1920&h=1080&fit=crop&crop=center"
+              src="https://i.ibb.co/xS4kYMGb/front-view-female-veterinarian-observing-little-dog-yellow-wall.jpg"
               alt="Help and support documentation"
               fill
               className="object-cover"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-600/80 via-red-600/50 to-blue-600/80"></div>
+            {/* Minimal overlay for text readability only */}
+            <div className="absolute inset-0 bg-black/40"></div>
           </div>
-
-          {/* Floating Elements */}
-          <div className="absolute top-10 left-10 w-16 h-16 bg-gradient-to-r from-pink-400 to-orange-400 rounded-full opacity-20 animate-pulse"></div>
-          <div className="absolute bottom-10 right-10 w-24 h-24 bg-gradient-to-r from-orange-400 to-red-400 rounded-full opacity-10 animate-bounce"></div>
-          <div className="absolute top-1/2 right-1/4 w-12 h-12 bg-gradient-to-r from-pink-300 to-orange-300 rounded-full opacity-15 animate-ping"></div>
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div
-              className={`text-center mb-12 transition-all duration-1000 ${
+              className={`text-center mb-8 transition-all duration-1000 ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
@@ -291,47 +288,46 @@ export default function HelpCenterPage() {
                 <HelpCircle className="w-4 h-4 mr-2" />
                 Support & Documentation
               </Badge>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
-                How Can We{" "}
-                <span className="bg-gradient-to-r from-pink-300 to-orange-300 bg-clip-text text-transparent">
-                  Help You?
-                </span>
+
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white leading-tight">
+                How Can We <span className="text-cyan-300">Help You?</span>
               </h1>
-              <p className="text-xl lg:text-2xl text-orange-100 mb-8 max-w-4xl mx-auto leading-relaxed">
+
+              <p className="text-lg lg:text-xl text-white/90 mb-6 max-w-3xl mx-auto leading-relaxed">
                 Find answers to your questions about VetVault pet management,
                 get support, and learn how to maximize your veterinary practice
                 efficiency.
               </p>
-              <div className="max-w-2xl mx-auto">
+
+              <div className="max-w-2xl mx-auto mb-6">
                 <div className="relative">
                   <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
                   <input
                     type="text"
                     placeholder="Search for help articles, tutorials, or guides..."
-                    className="w-full pl-12 pr-4 py-4 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-white/50 shadow-2xl"
+                    className="w-full pl-12 pr-4 py-4 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-white/50 shadow-xl"
                   />
                 </div>
               </div>
             </div>
 
-            {/* Stats Section */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+            {/* Stats Section - More Compact */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {stats.map((stat, index) => (
                 <div
                   key={index}
-                  className={`text-center bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20 animate-fade-in-up`}
-                  style={{ animationDelay: `${800 + index * 150}ms` }}
+                  className="text-center bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20 hover:bg-white/20 transition-all duration-300 group"
                 >
-                  <div className="w-12 h-12 bg-gradient-to-br from-pink-400 to-orange-400 rounded-2xl flex items-center justify-center text-white mx-auto mb-3">
+                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center text-white mx-auto mb-2 group-hover:scale-110 transition-transform duration-300">
                     {stat.icon}
                   </div>
-                  <div className="text-2xl font-bold text-white mb-1">
+                  <div className="text-xl font-bold text-white mb-1">
                     {stat.number}
                   </div>
-                  <div className="text-pink-200 font-semibold text-sm mb-1">
+                  <div className="text-white/90 font-semibold text-xs mb-1">
                     {stat.label}
                   </div>
-                  <div className="text-orange-200 text-xs">
+                  <div className="text-white/70 text-xs">
                     {stat.description}
                   </div>
                 </div>
@@ -340,29 +336,31 @@ export default function HelpCenterPage() {
           </div>
         </section>
 
-        {/* Support Options with Zoom Animation */}
-        <section className="py-20 lg:py-32 bg-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-white"></div>
+        {/* Support Options with Enhanced Design */}
+        <section className="py-16 lg:py-24 bg-slate-50 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-r from-orange-400 to-red-400 rounded-full mix-blend-multiply filter blur-3xl"></div>
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-r from-red-400 to-pink-400 rounded-full mix-blend-multiply filter blur-3xl"></div>
+          </div>
+
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
                 Get the{" "}
                 <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
                   Help You Need
                 </span>
               </h2>
-              <p className="text-xl lg:text-2xl text-slate-600 max-w-4xl mx-auto">
+              <p className="text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto">
                 Multiple ways to get support and find answers to your questions
               </p>
             </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {supportOptions.map((option, index) => (
                 <Card
                   key={index}
-                  className="group overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:scale-105 cursor-pointer bg-gradient-to-br from-white to-slate-50 border-0"
-                  style={{
-                    animation: `zoomIn 0.6s ease-out ${index * 100}ms both`,
-                  }}
+                  className="group overflow-hidden hover:shadow-2xl transition-all duration-700 transform hover:scale-105 hover:-translate-y-2 cursor-pointer bg-white border-0"
                   onMouseEnter={() => setHoveredCard(index)}
                   onMouseLeave={() => setHoveredCard(null)}
                 >
@@ -382,7 +380,7 @@ export default function HelpCenterPage() {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                       <div className="absolute bottom-4 left-4 right-4">
                         <div
-                          className={`w-12 h-12 bg-gradient-to-br ${option.color} rounded-xl flex items-center justify-center text-white mb-2 group-hover:scale-110 transition-transform duration-300`}
+                          className={`w-12 h-12 bg-gradient-to-br ${option.color} rounded-xl flex items-center justify-center text-white mb-2 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500`}
                         >
                           {option.icon}
                         </div>
@@ -410,35 +408,26 @@ export default function HelpCenterPage() {
           </div>
         </section>
 
-        {/* Help Categories with Slide Animation */}
-        <section className="py-20 lg:py-32 bg-gradient-to-br from-slate-100 to-slate-200 relative">
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 w-72 h-72 bg-gradient-to-r from-orange-400 to-red-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-            <div className="absolute bottom-0 right-0 w-72 h-72 bg-gradient-to-r from-red-400 to-pink-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
-          </div>
-
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+        {/* Help Categories with Enhanced Design */}
+        <section className="py-16 lg:py-24 bg-white relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
                 Browse{" "}
                 <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
                   Help Categories
                 </span>
               </h2>
-              <p className="text-xl lg:text-2xl text-slate-600 max-w-4xl mx-auto">
+              <p className="text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto">
                 Find comprehensive guides and tutorials organized by topic
               </p>
             </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {helpCategories.map((category, index) => (
                 <Card
                   key={index}
-                  className="group overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:rotate-1 cursor-pointer bg-white/80 backdrop-blur-sm border-0"
-                  style={{
-                    animation: `slideInFromBottom 0.8s ease-out ${
-                      index * 100
-                    }ms both`,
-                  }}
+                  className="group overflow-hidden hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-3 hover:rotate-1 cursor-pointer bg-white border-0"
                 >
                   <CardContent className="p-0">
                     <div className="relative overflow-hidden">
@@ -474,37 +463,30 @@ export default function HelpCenterPage() {
           </div>
         </section>
 
-        {/* Popular Articles with Flip Animation */}
-        <section className="py-20 lg:py-32 bg-white relative overflow-hidden">
-          <div className="absolute inset-0">
-            <Image
-              src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1920&h=1080&fit=crop&crop=center"
-              alt="Documentation background"
-              fill
-              className="object-cover opacity-5"
-            />
+        {/* Popular Articles with Enhanced Design */}
+        <section className="py-16 lg:py-24 bg-slate-50 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-r from-orange-400 to-pink-400 rounded-full mix-blend-multiply filter blur-3xl"></div>
           </div>
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
                 Popular{" "}
                 <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
                   Help Articles
                 </span>
               </h2>
-              <p className="text-xl lg:text-2xl text-slate-600 max-w-4xl mx-auto">
+              <p className="text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto">
                 Most viewed articles and guides from our community
               </p>
             </div>
+
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {popularArticles.map((article, index) => (
                 <Card
                   key={index}
-                  className="group overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1 cursor-pointer bg-gradient-to-br from-white to-slate-50 border-0"
-                  style={{
-                    animation: `flipInY 0.8s ease-out ${index * 150}ms both`,
-                  }}
+                  className="group overflow-hidden hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-2 cursor-pointer bg-white border-0"
                 >
                   <CardContent className="p-0">
                     <div className="relative overflow-hidden">
@@ -544,24 +526,20 @@ export default function HelpCenterPage() {
           </div>
         </section>
 
-        {/* Contact Support with Scale Animation */}
-        <section className="py-20 lg:py-32 bg-gradient-to-br from-slate-100 to-slate-200 relative">
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-r from-orange-400 to-pink-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-            <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-r from-pink-400 to-orange-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
-          </div>
-
-          <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Contact Support with Enhanced Design */}
+        <section className="py-16 lg:py-24 bg-white relative">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
-              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-8">
+              <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">
                 Still Need{" "}
                 <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
                   Help?
                 </span>
               </h2>
-              <p className="text-xl lg:text-2xl text-slate-600 mb-12 leading-relaxed">
+              <p className="text-lg lg:text-xl text-slate-600 mb-12 leading-relaxed">
                 Our support team is here to help you succeed with VetVault
               </p>
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                 {[
                   {
@@ -583,15 +561,9 @@ export default function HelpCenterPage() {
                     color: "from-pink-500 to-orange-500",
                   },
                 ].map((feature, index) => (
-                  <div
-                    key={index}
-                    className="text-center"
-                    style={{
-                      animation: `scaleIn 0.6s ease-out ${index * 200}ms both`,
-                    }}
-                  >
+                  <div key={index} className="text-center group">
                     <div
-                      className={`w-16 h-16 bg-gradient-to-br ${feature.color} rounded-full flex items-center justify-center text-white mx-auto mb-4 hover:scale-110 transition-transform duration-300`}
+                      className={`w-16 h-16 bg-gradient-to-br ${feature.color} rounded-full flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
                     >
                       <feature.icon className="w-8 h-8" />
                     </div>
@@ -602,10 +574,11 @@ export default function HelpCenterPage() {
                   </div>
                 ))}
               </div>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-lg px-10 py-5 rounded-xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
+                  className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-lg px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
                 >
                   <MessageCircle className="w-5 h-5 mr-2" />
                   Contact Support
@@ -613,7 +586,7 @@ export default function HelpCenterPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="text-lg px-10 py-5 rounded-xl hover:bg-orange-50 transform hover:scale-105 transition-all duration-300 bg-transparent"
+                  className="text-lg px-8 py-4 rounded-xl hover:bg-orange-50 transform hover:scale-105 transition-all duration-300 bg-transparent"
                 >
                   <Phone className="w-5 h-5 mr-2" />
                   Schedule a Call
@@ -623,32 +596,34 @@ export default function HelpCenterPage() {
           </div>
         </section>
 
-        {/* Testimonials Section with Fade Animation */}
-        <section className="py-20 lg:py-32 bg-white relative overflow-hidden">
+        {/* Testimonials Section */}
+        <section className="py-16 lg:py-24 bg-slate-50 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-r from-pink-400 to-orange-400 rounded-full mix-blend-multiply filter blur-3xl"></div>
+          </div>
+
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
                 What Our Users Say About{" "}
                 <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
                   Support
                 </span>
               </h2>
-              <p className="text-xl lg:text-2xl text-slate-600">
+              <p className="text-lg lg:text-xl text-slate-600">
                 See how our help center and support team assist veterinary
                 practices
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {testimonials.map((testimonial, index) => (
                 <Card
                   key={index}
-                  className="group relative overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-gradient-to-br from-white to-slate-50 border-0"
-                  style={{
-                    animation: `fadeInUp 0.8s ease-out ${index * 300}ms both`,
-                  }}
+                  className="group relative overflow-hidden hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-3 bg-white border-0"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <CardContent className="p-10 relative z-10">
+                  <CardContent className="p-8 relative z-10">
                     <div className="flex items-center mb-6">
                       <Image
                         src={testimonial.image || "/placeholder.svg"}
@@ -677,8 +652,14 @@ export default function HelpCenterPage() {
                         </div>
                       </div>
                     </div>
-                    <blockquote className="text-xl text-slate-700 mb-6 italic leading-relaxed group-hover:text-slate-900 transition-colors">
-                      "{testimonial.quote}"
+                    <blockquote className="text-lg text-slate-700 italic leading-relaxed group-hover:text-slate-900 transition-colors relative">
+                      <div className="absolute -top-2 -left-2 text-4xl text-orange-200 font-serif">
+                        "
+                      </div>
+                      {testimonial.quote}
+                      <div className="absolute -bottom-4 -right-2 text-4xl text-orange-200 font-serif">
+                        "
+                      </div>
                     </blockquote>
                   </CardContent>
                 </Card>
@@ -688,36 +669,24 @@ export default function HelpCenterPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 lg:py-32 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-600 via-red-700 to-pink-600"></div>
-          <div className="absolute inset-0">
-            <Image
-              src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1920&h=1080&fit=crop&crop=center"
-              alt="Support success"
-              fill
-              className="object-cover opacity-10"
-            />
-          </div>
-
-          {/* Animated Background Elements */}
-          <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full animate-pulse"></div>
-          <div className="absolute bottom-10 right-10 w-24 h-24 bg-white/5 rounded-full animate-bounce"></div>
-          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/10 rounded-full animate-ping"></div>
+        <section className="py-16 lg:py-24 bg-gradient-to-br from-orange-600 to-red-600 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.1)_1px,transparent_0)] bg-[length:24px_24px]"></div>
 
           <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-4xl lg:text-6xl font-bold text-white mb-8">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
               Ready to Get Started with{" "}
-              <span className="bg-gradient-to-r from-pink-300 to-white bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-pink-200 to-white bg-clip-text text-transparent">
                 VetVault?
               </span>
             </h2>
-            <p className="text-xl lg:text-2xl text-orange-100 mb-12 leading-relaxed">
+            <p className="text-lg lg:text-xl text-orange-100 mb-8 leading-relaxed">
               Our support team is here to help you every step of the way.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               <Button
                 size="lg"
-                className="bg-white text-orange-600 hover:bg-slate-100 text-lg px-10 py-5 rounded-xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
+                className="bg-white text-orange-600 hover:bg-slate-100 text-lg px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
               >
                 <Sparkles className="w-5 h-5 mr-2" />
                 Start Free Trial
@@ -726,13 +695,14 @@ export default function HelpCenterPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-white text-white hover:bg-white/10 text-lg px-10 py-5 rounded-xl backdrop-blur-sm bg-transparent"
+                className="border-2 border-white/30 text-white hover:bg-white/10 text-lg px-8 py-4 rounded-xl backdrop-blur-sm bg-transparent"
               >
                 <Users className="w-5 h-5 mr-2" />
                 Contact Sales
               </Button>
             </div>
-            <p className="text-orange-200 text-lg">
+
+            <p className="text-orange-200">
               Join <span className="font-bold text-white">10,000+</span>{" "}
               veterinary practices already using VetVault
             </p>
@@ -740,78 +710,6 @@ export default function HelpCenterPage() {
         </section>
       </main>
       <Footer />
-
-      <style jsx>{`
-        @keyframes zoomIn {
-          from {
-            opacity: 0;
-            transform: scale(0.3);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-
-        @keyframes slideInFromBottom {
-          from {
-            opacity: 0;
-            transform: translateY(50px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes flipInY {
-          from {
-            opacity: 0;
-            transform: perspective(400px) rotateY(90deg);
-          }
-          to {
-            opacity: 1;
-            transform: perspective(400px) rotateY(0deg);
-          }
-        }
-
-        @keyframes scaleIn {
-          from {
-            opacity: 0;
-            transform: scale(0.5);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes fade-in-up {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .animate-fade-in-up {
-          animation: fade-in-up 0.8s ease-out both;
-        }
-      `}</style>
     </div>
   );
 }

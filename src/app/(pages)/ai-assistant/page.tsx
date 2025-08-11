@@ -1,4 +1,5 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
@@ -281,57 +282,52 @@ export default function AIAssistantPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-white">
       <Header />
       <main className="pt-16">
-        {/* Hero Section */}
-        <section className="relative py-10 lg:py-22 overflow-hidden">
-          {/* Background Image with Light Overlay */}
-          <div className="absolute inset-0 z-0 ">
+        {/* Hero Section - Image Only with Reduced Height */}
+        <section className="relative py-8 lg:py-12 overflow-hidden">
+          {/* Background Image Only */}
+          <div className="absolute inset-0 z-0">
             <Image
-              src="https://images.unsplash.com/photo-1512428813834-c702c7702b78?w=600&h=400&fit=crop&crop=center"
+              src="https://i.ibb.co/MyBFdjwJ/medical-banner-with-doctor-wearing-goggles.jpg"
               alt="AI-powered veterinary technology"
               fill
               className="object-cover"
               priority
             />
-            {/* Light overlay instead of dark */}
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/50 via-indigo-900/35 to-cyan-800/60"></div>
+            {/* Minimal overlay for text readability only */}
+            <div className="absolute inset-0 bg-black/40"></div>
           </div>
-
-          {/* Floating Elements */}
-          <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full opacity-20 animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-32 h-32 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-full opacity-10 animate-bounce"></div>
-          <div className="absolute top-1/2 right-1/4 w-16 h-16 bg-gradient-to-r from-cyan-300 to-purple-300 rounded-full opacity-15 animate-ping"></div>
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div
-              className={`text-center mb-16 transition-all duration-1000 ${
+              className={`text-center transition-all duration-1000 ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
               }`}
             >
-              <Badge className="bg-white/20 text-white border-white/30 mb-6 px-4 py-2 text-sm font-semibold backdrop-blur-sm">
+              <Badge className="bg-white/20 text-white border-white/30 mb-4 px-4 py-2 text-sm font-semibold backdrop-blur-sm">
                 <Bot className="w-4 h-4 mr-2" />
                 AI-Powered Veterinary Assistant
               </Badge>
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-8 text-white leading-tight">
-                Meet{" "}
-                <span className="bg-gradient-to-r from-cyan-300 to-purple-300 bg-clip-text text-transparent">
-                  Pet Vault AI
-                </span>
-                , Your AI Veterinary Assistant
+
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white leading-tight">
+                Meet <span className="text-cyan-300">Pet Vault AI</span>, Your
+                AI Veterinary Assistant
               </h1>
-              <p className="text-xl lg:text-2xl text-purple-100 mb-12 max-w-4xl mx-auto leading-relaxed">
+
+              <p className="text-lg lg:text-xl text-white/90 mb-6 max-w-3xl mx-auto leading-relaxed">
                 Revolutionize your veterinary practice with AI-powered pet
                 management, intelligent insights, and automated workflows that
                 save time and improve care.
               </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                 <Button
                   size="lg"
-                  className="bg-white text-purple-600 hover:bg-slate-100 text-lg px-8 py-4 rounded-xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
+                  className="bg-white text-slate-900 hover:bg-slate-100 text-lg px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
                 >
                   <Sparkles className="w-5 h-5 mr-2" />
                   Try AI Assistant Free
@@ -347,23 +343,23 @@ export default function AIAssistantPage() {
               </div>
             </div>
 
-            {/* Stats Section */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+            {/* Stats Section - More Compact */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {stats.map((stat, index) => (
                 <div
                   key={index}
-                  className="text-center bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+                  className="text-center bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20 hover:bg-white/20 transition-all duration-300"
                 >
-                  <div className="w-16 h-16 bg-gradient-to-br from-cyan-400 to-purple-400 rounded-2xl flex items-center justify-center text-white mx-auto mb-4">
+                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center text-white mx-auto mb-2">
                     {stat.icon}
                   </div>
-                  <div className="text-3xl font-bold text-white mb-2">
+                  <div className="text-xl font-bold text-white mb-1">
                     {stat.number}
                   </div>
-                  <div className="text-cyan-200 font-semibold mb-1">
+                  <div className="text-white/90 font-semibold text-xs mb-1">
                     {stat.label}
                   </div>
-                  <div className="text-purple-200 text-sm">
+                  <div className="text-white/70 text-xs">
                     {stat.description}
                   </div>
                 </div>
@@ -373,46 +369,44 @@ export default function AIAssistantPage() {
         </section>
 
         {/* Benefits Section */}
-        <section className="py-20 lg:py-32 bg-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-white"></div>
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+        <section className="py-16 lg:py-24 bg-slate-50 relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
                 Why Veterinarians Love{" "}
                 <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
                   Pet Vault AI
                 </span>
               </h2>
-              <p className="text-xl lg:text-2xl text-slate-600 max-w-4xl mx-auto">
+              <p className="text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto">
                 Experience the future of veterinary care with AI-powered
                 assistance
               </p>
             </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {benefits.map((benefit, index) => (
                 <Card
                   key={index}
-                  className="group relative overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-0 bg-gradient-to-br from-white to-slate-50"
+                  className="group overflow-hidden hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 border-0 bg-white"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <CardContent className="p-8 relative z-10">
+                  <CardContent className="p-6">
                     <div className="relative mb-6">
                       <Image
                         src={benefit.image || "/placeholder.svg"}
                         alt={benefit.title}
                         width={400}
                         height={300}
-                        className="w-full h-48 object-cover rounded-xl mb-6 group-hover:scale-105 transition-transform duration-500"
+                        className="w-full h-40 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl"></div>
                     </div>
-                    <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                       {benefit.icon}
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-purple-600 transition-colors">
+                    <h3 className="text-lg font-bold text-slate-900 mb-3 group-hover:text-purple-600 transition-colors">
                       {benefit.title}
                     </h3>
-                    <p className="text-slate-600 leading-relaxed">
+                    <p className="text-slate-600 text-sm leading-relaxed">
                       {benefit.description}
                     </p>
                   </CardContent>
@@ -423,30 +417,26 @@ export default function AIAssistantPage() {
         </section>
 
         {/* AI Capabilities */}
-        <section className="py-20 lg:py-32 bg-gradient-to-br from-slate-100 to-slate-200 relative">
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 w-72 h-72 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-            <div className="absolute bottom-0 right-0 w-72 h-72 bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
-          </div>
-
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+        <section className="py-16 lg:py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
                 Advanced{" "}
                 <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
                   AI Capabilities
                 </span>
               </h2>
-              <p className="text-xl lg:text-2xl text-slate-600 max-w-4xl mx-auto">
+              <p className="text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto">
                 Powered by cutting-edge artificial intelligence designed for
                 veterinary medicine
               </p>
             </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {aiCapabilities.map((capability, index) => (
                 <Card
                   key={index}
-                  className="group overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1 bg-white/80 backdrop-blur-sm border-0"
+                  className="group overflow-hidden hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 bg-white border-0"
                 >
                   <CardContent className="p-0">
                     <div className="relative overflow-hidden">
@@ -455,20 +445,20 @@ export default function AIAssistantPage() {
                         alt={capability.title}
                         width={300}
                         height={200}
-                        className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700"
+                        className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                      <div className="absolute bottom-4 left-4 right-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center text-white mb-2">
+                      <div className="absolute bottom-4 left-4">
+                        <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-lg flex items-center justify-center text-white mb-2">
                           {capability.icon}
                         </div>
-                        <h3 className="text-lg font-bold text-white">
+                        <h3 className="text-sm font-bold text-white">
                           {capability.title}
                         </h3>
                       </div>
                     </div>
-                    <div className="p-6">
-                      <p className="text-slate-600 leading-relaxed">
+                    <div className="p-4">
+                      <p className="text-slate-600 text-sm leading-relaxed">
                         {capability.description}
                       </p>
                     </div>
@@ -480,59 +470,50 @@ export default function AIAssistantPage() {
         </section>
 
         {/* Use Cases Section */}
-        <section className="py-20 lg:py-32 bg-white relative overflow-hidden">
-          <div className="absolute inset-0">
-            <Image
-              src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1920&h=1080&fit=crop&crop=center"
-              alt="AI background"
-              fill
-              className="object-cover opacity-5"
-            />
-          </div>
-
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+        <section className="py-16 lg:py-24 bg-slate-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
                 Real-World{" "}
                 <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
                   AI Applications
                 </span>
               </h2>
-              <p className="text-xl lg:text-2xl text-slate-600 max-w-4xl mx-auto">
+              <p className="text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto">
                 See how Pet Vault AI transforms everyday veterinary tasks
               </p>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {useCases.map((useCase, index) => (
                 <Card
                   key={index}
-                  className="group overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-gradient-to-br from-white to-slate-50 border-0"
+                  className="group overflow-hidden hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 bg-white border-0"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <CardContent className="p-0 relative z-10">
+                  <CardContent className="p-0">
                     <div className="relative overflow-hidden">
                       <Image
                         src={useCase.image || "/placeholder.svg"}
                         alt={useCase.title}
                         width={500}
                         height={300}
-                        className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                      <div className="absolute bottom-6 left-6 right-6">
-                        <h3 className="text-2xl font-bold text-white mb-2">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                      <div className="absolute bottom-4 left-4">
+                        <h3 className="text-xl font-bold text-white mb-2">
                           {useCase.title}
                         </h3>
                       </div>
                     </div>
-                    <div className="p-8">
-                      <p className="text-slate-600 mb-6 text-lg leading-relaxed">
+                    <div className="p-6">
+                      <p className="text-slate-600 mb-4 leading-relaxed">
                         {useCase.description}
                       </p>
                       <div className="bg-purple-50 p-4 rounded-lg">
                         <div className="flex items-start space-x-2">
-                          <Lightbulb className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
-                          <p className="text-purple-800 font-medium">
+                          <Lightbulb className="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
+                          <p className="text-purple-800 font-medium text-sm">
                             {useCase.example}
                           </p>
                         </div>
@@ -546,31 +527,27 @@ export default function AIAssistantPage() {
         </section>
 
         {/* Features Section */}
-        <section className="py-20 lg:py-32 bg-gradient-to-br from-slate-100 to-slate-200 relative">
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-r from-purple-400 to-cyan-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-            <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
-          </div>
-
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+        <section className="py-16 lg:py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
                 Complete{" "}
                 <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
                   AI-Powered
                 </span>{" "}
                 Pet Management
               </h2>
-              <p className="text-xl lg:text-2xl text-slate-600 max-w-4xl mx-auto">
+              <p className="text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto">
                 Every feature enhanced with artificial intelligence for better
                 veterinary care
               </p>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {features.map((feature, index) => (
                 <Card
                   key={index}
-                  className="group overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1 bg-white/80 backdrop-blur-sm border-0"
+                  className="group overflow-hidden hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 bg-white border-0"
                 >
                   <CardContent className="p-0">
                     <div className="relative overflow-hidden">
@@ -579,27 +556,29 @@ export default function AIAssistantPage() {
                         alt={feature.title}
                         width={600}
                         height={400}
-                        className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                      <div className="absolute bottom-4 left-4 right-4">
-                        <h3 className="text-2xl font-bold text-white mb-2">
+                      <div className="absolute bottom-4 left-4">
+                        <h3 className="text-xl font-bold text-white mb-2">
                           {feature.title}
                         </h3>
                       </div>
                     </div>
-                    <div className="p-8">
-                      <p className="text-slate-600 mb-6 text-lg leading-relaxed">
+                    <div className="p-6">
+                      <p className="text-slate-600 mb-4 leading-relaxed">
                         {feature.description}
                       </p>
-                      <ul className="space-y-3">
+                      <ul className="space-y-2">
                         {feature.details.map((detail, detailIndex) => (
                           <li
                             key={detailIndex}
-                            className="flex items-center text-slate-700 group-hover:text-slate-900 transition-colors"
+                            className="flex items-center text-slate-700"
                           >
-                            <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                            <span className="font-medium">{detail}</span>
+                            <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
+                            <span className="text-sm font-medium">
+                              {detail}
+                            </span>
                           </li>
                         ))}
                       </ul>
@@ -612,11 +591,11 @@ export default function AIAssistantPage() {
         </section>
 
         {/* AI Demo Section */}
-        <section className="py-20 lg:py-32 bg-white relative overflow-hidden">
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <section className="py-16 lg:py-24 bg-slate-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-8">
+                <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">
                   Experience{" "}
                   <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
                     Pet Vault AI
@@ -679,49 +658,44 @@ export default function AIAssistantPage() {
                   </div>
                 </div>
               </div>
+
               <div className="relative">
                 <Image
                   src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&crop=center"
                   alt="Pet Vault AI dashboard interface"
                   width={800}
                   height={600}
-                  className="w-full h-auto rounded-2xl shadow-2xl"
+                  className="w-full h-auto rounded-2xl shadow-xl"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-indigo-500/20 rounded-2xl"></div>
-                <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-full opacity-80 animate-pulse"></div>
-                <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full opacity-60 animate-bounce"></div>
+                <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-full"></div>
+                <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full"></div>
               </div>
             </div>
           </div>
         </section>
 
         {/* Testimonials Section */}
-        <section className="py-20 lg:py-32 bg-gradient-to-br from-slate-100 to-slate-200 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 w-72 h-72 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-            <div className="absolute bottom-0 right-0 w-72 h-72 bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
-          </div>
-
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+        <section className="py-16 lg:py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
                 Trusted by Veterinarians{" "}
                 <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
                   Nationwide
                 </span>
               </h2>
-              <p className="text-xl lg:text-2xl text-slate-600">
+              <p className="text-lg lg:text-xl text-slate-600">
                 See how Pet Vault AI is transforming veterinary practices
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {testimonials.map((testimonial, index) => (
                 <Card
                   key={index}
-                  className="group relative overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-gradient-to-br from-white to-slate-50 border-0"
+                  className="group overflow-hidden hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 bg-white border-0"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <CardContent className="p-10 relative z-10">
+                  <CardContent className="p-8">
                     <div className="flex items-center mb-6">
                       <Image
                         src={testimonial.image || "/placeholder.svg"}
@@ -750,7 +724,7 @@ export default function AIAssistantPage() {
                         </div>
                       </div>
                     </div>
-                    <blockquote className="text-xl text-slate-700 mb-6 italic leading-relaxed group-hover:text-slate-900 transition-colors">
+                    <blockquote className="text-lg text-slate-700 italic leading-relaxed group-hover:text-slate-900 transition-colors">
                       "{testimonial.quote}"
                     </blockquote>
                   </CardContent>
@@ -761,38 +735,26 @@ export default function AIAssistantPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 lg:py-32 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-indigo-700 to-cyan-600"></div>
-          <div className="absolute inset-0">
-            <Image
-              src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1920&h=1080&fit=crop&crop=center"
-              alt="AI-powered veterinary success"
-              fill
-              className="object-cover opacity-10"
-            />
-          </div>
-
-          {/* Animated Background Elements */}
-          <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full animate-pulse"></div>
-          <div className="absolute bottom-10 right-10 w-24 h-24 bg-white/5 rounded-full animate-bounce"></div>
-          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/10 rounded-full animate-ping"></div>
+        <section className="py-16 lg:py-24 bg-gradient-to-br from-purple-600 to-cyan-600 relative">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.1)_1px,transparent_0)] bg-[length:24px_24px]"></div>
 
           <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-4xl lg:text-6xl font-bold text-white mb-8">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
               Ready to Experience{" "}
-              <span className="bg-gradient-to-r from-cyan-300 to-white bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-200 to-white bg-clip-text text-transparent">
                 AI-Powered
               </span>{" "}
               Veterinary Care?
             </h2>
-            <p className="text-xl lg:text-2xl text-purple-100 mb-12 leading-relaxed">
+            <p className="text-lg lg:text-xl text-purple-100 mb-8 leading-relaxed">
               Start your free trial and see how Pet Vault AI can transform your
               veterinary practice with intelligent automation and insights.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               <Button
                 size="lg"
-                className="bg-white text-purple-600 hover:bg-slate-100 text-lg px-10 py-5 rounded-xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
+                className="bg-white text-purple-600 hover:bg-slate-100 text-lg px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
               >
                 <Sparkles className="w-5 h-5 mr-2" />
                 Try Pet Vault AI Free
@@ -801,13 +763,14 @@ export default function AIAssistantPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-white text-white hover:bg-white/10 text-lg px-10 py-5 rounded-xl backdrop-blur-sm bg-transparent"
+                className="border-2 border-white/30 text-white hover:bg-white/10 text-lg px-8 py-4 rounded-xl backdrop-blur-sm bg-transparent"
               >
                 <Play className="w-5 h-5 mr-2" />
                 Schedule Demo
               </Button>
             </div>
-            <p className="text-purple-200 text-lg">
+
+            <p className="text-purple-200">
               Join <span className="font-bold text-white">5,000+</span>{" "}
               veterinarians already using Pet Vault AI
             </p>
