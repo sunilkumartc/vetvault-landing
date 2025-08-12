@@ -3,15 +3,16 @@
 import React, { useEffect, useRef } from "react";
 
 const scrollingFeatures = [
-  "Health records",
-  "Online appointments",
-  "Invoicing",
-  "Stock Management",
-  "Pet Parent app",
-  "Chat & Telemedicine",
-  "Reports",
-  "Data migration",
-  "Cloud-based veterinary software",
+  "Trusted by Indian clinics:",
+  "Dr Ravis Pet Clinic",
+  "Prestige Pet Hospital",
+  "Kamala pet Care Clinic",
+  "Cartman Animal Clinic",
+  "Blue Cross Pet Clinic",
+  "Animal Aid Veterinary Hospital",
+  "Perfect Paws Clinic",
+  "Pet Care & Surgery Center",
+  "Companion Animal Clinic",
 ];
 
 export default function ScrollingBanner() {

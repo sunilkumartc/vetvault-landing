@@ -48,7 +48,7 @@ const benefits = [
     title: "Reduce Errors by 95%",
     description: "AI-powered validation and error checking for better accuracy",
     image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=300&fit=crop&crop=center",
+      "https://i.ibb.co/CKGfx9d3/hand-woman-arranging-wood-cube-stacking-with-icon-healthcare-medical-blue-52701-108.jpg",
   },
   {
     icon: <Users className="w-8 h-8" />,

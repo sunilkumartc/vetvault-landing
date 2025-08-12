@@ -59,7 +59,7 @@ const benefits = [
     title: "Reduce Errors by 90%",
     description: "Digital records and automated systems minimize human error",
     image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=300&fit=crop&crop=center",
+      "https://i.ibb.co/R4vSjg85/close-up-veterinarian-taking-care-dog-1.jpg",
     color: "from-purple-500 to-violet-600",
     stat: "-90% Errors",
   },

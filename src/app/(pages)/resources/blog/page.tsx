@@ -68,7 +68,7 @@ const featuredPosts = [
     readTime: "10 min read",
     category: "Emergency Care",
     image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=300&fit=crop&crop=center",
+      "https://i.ibb.co/R4vSjg85/close-up-veterinarian-taking-care-dog-1.jpg",
     views: 11230,
     likes: 634,
     comments: 28,

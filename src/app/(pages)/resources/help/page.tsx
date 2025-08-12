@@ -86,7 +86,7 @@ const helpCategories = [
     description: "Common issues and their solutions",
     articles: 22,
     image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=300&h=200&fit=crop&crop=center",
+      "https://i.ibb.co/R4vSjg85/close-up-veterinarian-taking-care-dog-1.jpg",
     color: "from-red-500 to-pink-600",
   },
 ];

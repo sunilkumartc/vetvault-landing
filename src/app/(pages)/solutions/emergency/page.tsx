@@ -32,7 +32,7 @@ const benefits = [
     description:
       "Round-the-clock emergency protocols and critical care management",
     image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=300&fit=crop&crop=center",
+      "https://i.ibb.co/R4vSjg85/close-up-veterinarian-taking-care-dog-1.jpg",
   },
   {
     icon: <AlertTriangle className="w-8 h-8" />,
@@ -166,7 +166,7 @@ const emergencyWorkflow = [
     description: "Immediate evaluation and treatment prioritization",
     icon: <Heart className="w-6 h-6" />,
     image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=300&h=200&fit=crop&crop=center",
+      "https://images.unsplash.com/photo-1512428813834-c702c7702b78?w=600&h=400&fit=crop&crop=center",
   },
   {
     step: "3",

@@ -81,7 +81,7 @@ const featuredCaseStudies = [
       "60% better staff coordination",
     ],
     image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=600&h=400&fit=crop&crop=center",
+      "https://i.ibb.co/R4vSjg85/close-up-veterinarian-taking-care-dog-1.jpg",
     category: "Emergency Care",
     readTime: "12 min read",
     color: "from-red-500 to-pink-600",

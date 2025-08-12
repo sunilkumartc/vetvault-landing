@@ -4,40 +4,40 @@ import Image from "next/image";
 const trustedLogos = [
   {
     name: "Dr Ravi Pet Clinic",
-    logo: "https://via.placeholder.com/120x60/4F46E5/FFFFFF?text=Dr+Ravi+Pet+Clinic",
+    logo: "https://i.ibb.co/4Zjwkqhv/Whats-App-Image-2025-07-21-at-10-05-00-AM-1.jpg",
     width: 120,
     height: 60,
   },
-  {
-    name: "Prestige Pet Hospital",
-    logo: "https://via.placeholder.com/120x60/4F46E5/FFFFFF?text=Prestige+Pet+Hospital",
-    width: 120,
-    height: 60,
-  },
-  {
-    name: "Cartman Animal Hospital",
-    logo: "https://via.placeholder.com/120x60/4F46E5/FFFFFF?text=Cartman+Animal+Hospital",
-    width: 120,
-    height: 60,
-  },
-  {
-    name: "AVMA",
-    logo: "https://via.placeholder.com/120x60/4F46E5/FFFFFF?text=AVMA",
-    width: 120,
-    height: 60,
-  },
-  {
-    name: "SAVE",
-    logo: "https://via.placeholder.com/120x60/4F46E5/FFFFFF?text=SAVE",
-    width: 120,
-    height: 60,
-  },
-  {
-    name: "VetTech",
-    logo: "https://via.placeholder.com/120x60/4F46E5/FFFFFF?text=VetTech",
-    width: 120,
-    height: 60,
-  },
+  // {
+  //   name: "Prestige Pet Hospital",
+  //   logo: "https://i.ibb.co/4Zjwkqhv/Whats-App-Image-2025-07-21-at-10-05-00-AM-1.jpg",
+  //   width: 120,
+  //   height: 60,
+  // },
+  // {
+  //   name: "Cartman Animal Hospital",
+  //   logo: "https://i.ibb.co/4Zjwkqhv/Whats-App-Image-2025-07-21-at-10-05-00-AM-1.jpg",
+  //   width: 120,
+  //   height: 60,
+  // },
+  // {
+  //   name: "AVMA",
+  //   logo: "https://i.ibb.co/4Zjwkqhv/Whats-App-Image-2025-07-21-at-10-05-00-AM-1.jpg",
+  //   width: 120,
+  //   height: 60,
+  // },
+  // {
+  //   name: "SAVE",
+  //   logo: "https://via.placeholder.com/120x60/4F46E5/FFFFFF?text=SAVE",
+  //   width: 120,
+  //   height: 60,
+  // },
+  // {
+  //   name: "VetTech",
+  //   logo: "https://via.placeholder.com/120x60/4F46E5/FFFFFF?text=VetTech",
+  //   width: 120,
+  //   height: 60,
+  // },
 ];
 
 export default function FeaturedInSection() {
@@ -45,7 +45,9 @@ export default function FeaturedInSection() {
     <section className="py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
-          <p className="text-slate-500 font-medium mb-4">TRUSTED BY LEADING VETERINARY CLINICS</p>
+          <p className="text-slate-500 font-medium mb-4">
+            TRUSTED BY LEADING VETERINARY CLINICS
+          </p>
           <p className="text-slate-600">
             TRUSTED BY 1000+ practices, 4000+ veterinarians, 10+ universities &
             shelters
@@ -64,7 +66,7 @@ export default function FeaturedInSection() {
             </div>
           ))}
         </div>
-        
+
         {/* Additional Trust Indicators */}
         <div className="mt-8 text-center">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-slate-600">
